@@ -1,120 +1,472 @@
- <!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+ <!DOCTYPE html>
+<html lang="en">
 
-<!-- Social Links -->
-<div class="social-links">
-
-  <a href="https://www.instagram.com/iamdevendra0289?igsh=MWp6c2Y5djB1YTlyaw==" target="_blank">
-    <i class="fab fa-instagram"></i> Instagram
-  </a>
-
-  <a href="https://www.youtube.com/@FXgaming890" target="_blank">
-    <i class="fab fa-youtube"></i> YouTube
-  </a>
-
-</div>
-
-<style>
-.social-links{
-    text-align:center;
-    margin:20px;
-}
-.social-links a{
-    display:inline-block;
-    margin:10px;
-    padding:12px 20px;
-    background:#222;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-    font-size:18px;
-}
-.social-links a:hover{
-    background:#444;
-}
-.fa-instagram{
-    color:#E1306C;
-}
-.fa-youtube{
-    color:red;
-}
-</style>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BabyJohnHub</title>
-  <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BabyJohnHub OTT</title>
+
+<meta name="description" content="Watch Episodes Online">
+
+<meta name="keywords" content="BabyJohnHub, OTT, Episodes, Movies">
+
+<meta name="author" content="Devendra">
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 
 <body>
 
-<header>
-  <div class="logo">🎬 BabyJohnHub</div>
-  <input id="search" type="text" placeholder="Search videos...">
-</header>
+<!-- HEADER -->
 
-<section class="hero">
-  <h1>Welcome to BabyJohnHub</h1>
-  <p>Watch the latest videos.</p>
+<header class="header">
 
-  <a href="https://youtube.com/shorts/OspBO_hh5Uk" target="_blank">
-    <button>Watch Now</button>
-  </a>
-</section>
+<div class="logo">
 
-<h2>Trending Videos</h2>
-
-<div class="grid">
-
-  <div class="card">
-    <h3>Video 1</h3>
-    <a href="https://youtu.be/LINK1" target="_blank">
-      <button>Watch</button>
-    </a>
-  </div>
-
-  <div class="card">
-    <h3>Video 2</h3>
-    <a href="https://youtu.be/LINK2" target="_blank">
-      <button>Watch</button>
-    </a>
-  </div>
-
-  <div class="card">
-    <h3>Video 3</h3>
-    <a href="https://youtu.be/LINK3" target="_blank">
-      <button>Watch</button>
-    </a>
-  </div>
-
-  <div class="card">
-    <h3>Video 4</h3>
-    <a href="https://www.instagram.com/" target="_blank">
-      <button>Watch</button>
-    </a>
-  </div>
-
-  <div class="card">
-    <h3>Video 5</h3>
-    <a href="https://www.instagram.com/" target="_blank">
-      <button>Watch</button>
-    </a>
-  </div>
-
-  <div class="card">
-    <h3>Video 6</h3>
-    <a href="https://www.instagram.com/" target="_blank">
-      <button>Watch</button>
-    </a>
-  </div>
+🎬 BabyJohnHub
 
 </div>
 
-<footer>
-  © 2026 BabyJohnHub
+<nav class="navbar">
+
+<a href="#">Home</a>
+
+<a href="#">Episodes</a>
+
+<a href="#">Categories</a>
+
+<a href="#">Trending</a>
+
+<a href="#">Favorites</a>
+
+<a href="#">Profile</a>
+
+</nav>
+
+<div class="header-icons">
+
+<i class="fa-solid fa-bell"></i>
+
+<i class="fa-solid fa-user"></i>
+
+</div>
+
+</header>
+
+<!-- SEARCH -->
+
+<section class="search-section">
+
+<div class="search-box">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search Episode...">
+
+<button id="searchBtn">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+</button>
+
+</div>
+
+</section>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+
+Welcome To BabyJohnHub
+
+</h1>
+
+<p>
+
+Watch Unlimited Episodes Free
+
+</p>
+
+<button id="watchNow">
+
+▶ Watch Now
+
+</button>
+
+</div>
+
+</section>
+
+<!-- FEATURED -->
+
+<section class="featured">
+
+<h2>
+
+Featured Episode
+
+</h2>
+
+<div class="featured-card">
+
+<img
+src="images/featured.jpg"
+alt="Featured">
+
+<div class="featured-info">
+
+<h3>
+
+Episode 1
+
+</h3>
+
+<p>
+
+Start Watching Now
+
+</p>
+
+<button>
+
+Play Episode
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CATEGORIES -->
+
+<section class="categories">
+
+<h2>Categories</h2>
+
+<div class="category-list">
+
+<button>Action</button>
+
+<button>Comedy</button>
+
+<button>Romance</button>
+
+<button>Drama</button>
+
+<button>Horror</button>
+
+<button>Adventure</button>
+
+<button>Crime</button>
+
+<button>Thriller</button>
+
+</div>
+
+</section>
+
+<!-- TRENDING EPISODES -->
+
+<section class="episodes">
+
+<h2>Trending Episodes</h2>
+
+<div class="episode-grid">
+
+<div class="episode-card">
+<img src="images/episode1.jpg" alt="Episode 1">
+<h3>Episode 1</h3>
+<p>HD Quality</p>
+<button>Watch Now</button>
+</div>
+
+<div class="episode-card">
+<img src="images/episode2.jpg" alt="Episode 2">
+<h3>Episode 2</h3>
+<p>HD Quality</p>
+<button>Watch Now</button>
+</div>
+
+<div class="episode-card">
+<img src="images/episode3.jpg" alt="Episode 3">
+<h3>Episode 3</h3>
+<p>HD Quality</p>
+<button>Watch Now</button>
+</div>
+
+<div class="episode-card">
+<img src="images/episode4.jpg" alt="Episode 4">
+<h3>Episode 4</h3>
+<p>HD Quality</p>
+<button>Watch Now</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTINUE WATCHING -->
+
+<section class="continue">
+
+<h2>Continue Watching</h2>
+
+<div class="episode-grid">
+
+<div class="episode-card">
+<img src="images/continue1.jpg" alt="">
+<h3>Episode 5</h3>
+<button>Resume</button>
+</div>
+
+<div class="episode-card">
+<img src="images/continue2.jpg" alt="">
+<h3>Episode 6</h3>
+<button>Resume</button>
+</div>
+
+<div class="episode-card">
+<img src="images/continue3.jpg" alt="">
+<h3>Episode 7</h3>
+<button>Resume</button>
+</div>
+
+<div class="episode-card">
+<img src="images/continue4.jpg" alt="">
+<h3>Episode 8</h3>
+<button>Resume</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- RECENTLY ADDED -->
+
+<section class="recent">
+
+<h2>Recently Added</h2>
+
+<div class="episode-grid">
+
+<div class="episode-card">
+<img src="images/new1.jpg" alt="">
+<h3>New Episode</h3>
+<button>Watch</button>
+</div>
+
+<div class="episode-card">
+<img src="images/new2.jpg" alt="">
+<h3>Latest Episode</h3>
+<button>Watch</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- VIDEO PLAYER -->
+
+<section class="video-player">
+
+<h2>Now Playing</h2>
+
+<div class="player-box">
+
+<video id="videoPlayer" controls width="100%">
+<source src="videos/episode1.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+<div class="player-buttons">
+
+<button id="prevEpisode">
+⏮ Previous
+</button>
+
+<button id="nextEpisode">
+Next ⏭
+</button>
+
+<button id="likeBtn">
+❤️ Like
+</button>
+
+<button id="shareBtn">
+📤 Share
+</button>
+
+<button id="copyBtn">
+🔗 Copy Link
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EPISODE DETAILS -->
+
+<section class="episode-details">
+
+<h2>Episode Details</h2>
+
+<h3>Episode 1</h3>
+
+<p>
+
+Watch Episode 1 in Full HD Quality.
+Enjoy smooth streaming and continue
+watching the next episode.
+
+</p>
+
+</section>
+
+<!-- COMMENTS -->
+
+<section class="comments">
+
+<h2>Comments</h2>
+
+<textarea
+placeholder="Write your comment..."
+rows="5">
+</textarea>
+
+<br>
+
+<button>
+Post Comment
+</button>
+
+</section>
+
+<!-- RELATED EPISODES -->
+
+<section class="related">
+
+<h2>Related Episodes</h2>
+
+<div class="episode-grid">
+
+<div class="episode-card">
+<img src="images/episode5.jpg" alt="">
+<h3>Episode 9</h3>
+<button>Watch</button>
+</div>
+
+<div class="episode-card">
+<img src="images/episode6.jpg" alt="">
+<h3>Episode 10</h3>
+<button>Watch</button>
+</div>
+
+<div class="episode-card">
+<img src="images/episode7.jpg" alt="">
+<h3>Episode 11</h3>
+<button>Watch</button>
+</div>
+
+<div class="episode-card">
+<img src="images/episode8.jpg" alt="">
+<h3>Episode 12</h3>
+<button>Watch</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<div class="footer-logo">
+
+<h2>🎬 BabyJohnHub OTT</h2>
+
+<p>
+Watch Unlimited Entertainment Anytime, Anywhere.
+</p>
+
+</div>
+
+<div class="footer-links">
+
+<h3>Quick Links</h3>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+
+<li><a href="#">Episodes</a></li>
+
+<li><a href="#">Categories</a></li>
+
+<li><a href="#">Favorites</a></li>
+
+<li><a href="#">Profile</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-social">
+
+<h3>Follow Us</h3>
+
+<a href="https://www.instagram.com/iamdevendra0289?igsh=MWp6c2Y5djB1YTlyaw==" target="_blank">
+<i class="fab fa-instagram"></i> Instagram
+</a>
+
+<br><br>
+
+<a href="https://www.youtube.com/@FXgaming890" target="_blank">
+<i class="fab fa-youtube"></i> YouTube
+</a>
+
+</div>
+
+<div class="footer-contact">
+
+<h3>Contact</h3>
+
+<p>Email: support@babyjohnhub.com</p>
+
+<p><a href="#">Privacy Policy</a></p>
+
+<p><a href="#">Terms & Conditions</a></p>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 BabyJohnHub OTT. All Rights Reserved.
+
+</p>
+
 </footer>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
