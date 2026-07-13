@@ -156,3 +156,82 @@ function toggleFavorite(movieId) {
 }
 
 console.log("Profile Part 2 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Profile System
+   Part 3/5
+====================================== */
+
+// Save Continue Watching
+
+function saveContinueWatching(videoId, currentTime, duration) {
+
+    let watching = JSON.parse(
+        localStorage.getItem("bjh_continue")
+    ) || {};
+
+    watching[videoId] = {
+
+        currentTime: currentTime,
+
+        duration: duration,
+
+        updatedAt: Date.now()
+
+    };
+
+    localStorage.setItem(
+        "bjh_continue",
+        JSON.stringify(watching)
+    );
+
+}
+
+// Get Continue Watching
+
+function getContinueWatching() {
+
+    return JSON.parse(
+        localStorage.getItem("bjh_continue")
+    ) || {};
+
+}
+
+// Get Progress %
+
+function getWatchProgress(videoId) {
+
+    const watching = getContinueWatching();
+
+    if (!watching[videoId]) return 0;
+
+    return Math.floor(
+
+        (watching[videoId].currentTime /
+
+        watching[videoId].duration) * 100
+
+    );
+
+}
+
+// Remove Continue Watching
+
+function removeContinueWatching(videoId) {
+
+    let watching = getContinueWatching();
+
+    delete watching[videoId];
+
+    localStorage.setItem(
+
+        "bjh_continue",
+
+        JSON.stringify(watching)
+
+    );
+
+}
+
+console.log("Profile Part 3 Ready");
