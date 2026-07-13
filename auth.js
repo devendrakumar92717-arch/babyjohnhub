@@ -271,3 +271,73 @@ function resendOTP() {
 }
 
 console.log("Authentication Part 3 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Authentication System
+   Part 4/6
+====================================== */
+
+// Current User
+
+let currentUser = null;
+
+// Login
+
+function loginUser(userData) {
+
+    currentUser = userData;
+
+    localStorage.setItem(
+        "bjh_user",
+        JSON.stringify(userData)
+    );
+
+    alert("✅ Login Successful");
+
+    closeAuth();
+
+}
+
+// Logout
+
+function logoutUser() {
+
+    localStorage.removeItem("bjh_user");
+
+    currentUser = null;
+
+    alert("👋 Logged Out Successfully");
+
+}
+
+// Auto Login
+
+function checkLogin() {
+
+    const savedUser =
+        localStorage.getItem("bjh_user");
+
+    if (savedUser) {
+
+        currentUser =
+            JSON.parse(savedUser);
+
+        console.log(
+            "Welcome Back:",
+            currentUser.username
+        );
+
+    }
+
+}
+
+// Remember Login
+
+window.addEventListener("load", function () {
+
+    checkLogin();
+
+});
+
+console.log("Authentication Part 4 Ready");
