@@ -179,3 +179,95 @@ function validateRegistration(data) {
 }
 
 console.log("Authentication Part 2 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Authentication System
+   Part 3/6
+====================================== */
+
+let otpTimer = 60;
+let otpInterval = null;
+
+// Start OTP Timer
+
+function startOtpTimer() {
+
+    const timer = document.getElementById("otpTimer");
+
+    otpTimer = 60;
+
+    clearInterval(otpInterval);
+
+    otpInterval = setInterval(function () {
+
+        if (timer) {
+
+            timer.innerHTML =
+                "Resend OTP in " + otpTimer + " sec";
+
+        }
+
+        otpTimer--;
+
+        if (otpTimer < 0) {
+
+            clearInterval(otpInterval);
+
+            if (timer) {
+
+                timer.innerHTML =
+                    "Resend OTP";
+
+            }
+
+        }
+
+    }, 1000);
+
+}
+
+// Send OTP (Demo)
+
+function sendOTP() {
+
+    alert("OTP Sent Successfully");
+
+    startOtpTimer();
+
+}
+
+// Verify OTP (Demo)
+
+function verifyOTP() {
+
+    const otp =
+        document.getElementById("otpInput");
+
+    if (!otp) return;
+
+    if (otp.value.length === 6) {
+
+        alert("OTP Verified Successfully");
+
+    } else {
+
+        alert("Please Enter Valid 6 Digit OTP");
+
+    }
+
+}
+
+// Resend OTP
+
+function resendOTP() {
+
+    if (otpTimer <= 0) {
+
+        sendOTP();
+
+    }
+
+}
+
+console.log("Authentication Part 3 Ready");
