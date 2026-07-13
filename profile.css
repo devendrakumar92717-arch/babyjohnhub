@@ -238,3 +238,115 @@ color:#fff;
 .logout-btn:hover{
 background:#b71c1c;
 }
+
+/* ======================================
+   BabyJohnHub OTT
+   Profile System
+   Part 4/4
+====================================== */
+
+/* Continue Watching */
+
+.continue-card{
+background:#181818;
+padding:20px;
+border-radius:18px;
+margin-top:25px;
+color:#fff;
+}
+
+.continue-item{
+display:flex;
+align-items:center;
+gap:15px;
+margin-top:15px;
+padding:12px;
+background:#252525;
+border-radius:12px;
+}
+
+.continue-item img{
+width:110px;
+height:65px;
+border-radius:8px;
+object-fit:cover;
+}
+
+/* Favorite Movies */
+
+.favorite-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.favorite-item{
+background:#252525;
+border-radius:12px;
+overflow:hidden;
+transition:.3s;
+cursor:pointer;
+}
+
+.favorite-item:hover{
+transform:scale(1.05);
+}
+
+.favorite-item img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.favorite-item p{
+margin:10px;
+font-size:14px;
+text-align:center;
+}
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+
+.profile-header{
+
+flex-direction:column;
+text-align:center;
+
+}
+
+.profile-details{
+
+width:100%;
+
+}
+
+.profile-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.favorite-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.continue-item{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.continue-item img{
+
+width:100%;
+height:auto;
+
+}
+
+}
