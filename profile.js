@@ -235,3 +235,70 @@ function removeContinueWatching(videoId) {
 }
 
 console.log("Profile Part 3 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Profile System
+   Part 4/5
+====================================== */
+
+// Get Watch History
+
+function getWatchHistory() {
+
+    return JSON.parse(
+        localStorage.getItem("bjh_history")
+    ) || [];
+
+}
+
+// Save Watch History
+
+function saveWatchHistoryItem(video) {
+
+    let history = getWatchHistory();
+
+    // Remove duplicate
+    history = history.filter(item => item.id !== video.id);
+
+    // Add latest video at top
+    history.unshift({
+
+        id: video.id,
+
+        title: video.title,
+
+        poster: video.poster,
+
+        watchedAt: Date.now()
+
+    });
+
+    // Keep only last 50 items
+    if (history.length > 50) {
+
+        history = history.slice(0, 50);
+
+    }
+
+    localStorage.setItem(
+
+        "bjh_history",
+
+        JSON.stringify(history)
+
+    );
+
+}
+
+// Clear Watch History
+
+function clearWatchHistory() {
+
+    localStorage.removeItem("bjh_history");
+
+    alert("🗑️ Watch History Cleared");
+
+}
+
+console.log("Profile Part 4 Ready");
