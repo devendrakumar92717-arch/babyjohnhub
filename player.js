@@ -147,3 +147,72 @@ function startDownloadProcess(quality) {
     }, 120);
 
 }
+
+/* ======================================
+   BabyJohnHub OTT
+   Download Complete System
+====================================== */
+
+function startRealDownload(quality) {
+
+    const status = document.getElementById("downloadStatus");
+    const progress = document.getElementById("downloadProgress");
+
+    let percent = 0;
+
+    status.innerHTML = "Preparing " + quality + "...";
+    progress.style.width = "0%";
+
+    const timer = setInterval(function () {
+
+        percent += 10;
+
+        progress.style.width = percent + "%";
+        status.innerHTML = "Processing... " + percent + "%";
+
+        if (percent >= 100) {
+
+            clearInterval(timer);
+
+            status.innerHTML =
+            "✅ Download Complete";
+
+            setTimeout(function () {
+
+                const video =
+                document.querySelector("#videoPlayer source");
+
+                if (video) {
+
+                    const a =
+                    document.createElement("a");
+
+                    a.href = video.src;
+
+                    a.download = "";
+
+                    document.body.appendChild(a);
+
+                    a.click();
+
+                    document.body.removeChild(a);
+
+                }
+
+            },800);
+
+        }
+
+    },250);
+
+}
+
+// Replace old function
+
+function selectDownloadQuality(quality){
+
+    closeDownloadPopup();
+
+    startRealDownload(quality);
+
+}
