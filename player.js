@@ -347,3 +347,99 @@ player.addEventListener("play", function () {
 });
 
 console.log("Continue Watching Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Final Player System
+====================================== */
+
+// Favorite System
+
+function favoriteEpisode() {
+
+    const title = document.getElementById("episodeTitle").innerText;
+
+    let favorites = JSON.parse(
+        localStorage.getItem("bjh_favorites")
+    ) || [];
+
+    if (!favorites.includes(title)) {
+
+        favorites.push(title);
+
+        localStorage.setItem(
+            "bjh_favorites",
+            JSON.stringify(favorites)
+        );
+
+        alert("❤️ Added to Favorites");
+
+    } else {
+
+        alert("❤️ Already in Favorites");
+
+    }
+
+}
+
+// Advanced Share
+
+async function shareEpisode() {
+
+    const title = document.getElementById("episodeTitle").innerText;
+
+    const url = window.location.href;
+
+    if (navigator.share) {
+
+        try {
+
+            await navigator.share({
+
+                title: title,
+
+                text: "Watch on BabyJohnHub",
+
+                url: url
+
+            });
+
+        } catch (e) {
+
+            console.log("Share cancelled");
+
+        }
+
+    } else {
+
+        navigator.clipboard.writeText(url);
+
+        alert("🔗 Link Copied");
+
+    }
+
+}
+
+// Copy Link
+
+function copyLink() {
+
+    navigator.clipboard.writeText(window.location.href);
+
+    alert("🔗 Link Copied");
+
+}
+
+// Auto Play Next Episode
+
+player.addEventListener("ended", function () {
+
+    if (currentEpisode < episodes.length - 1) {
+
+        playEpisode(episodes[currentEpisode + 1].id);
+
+    }
+
+});
+
+console.log("BabyJohnHub Player Ready");
