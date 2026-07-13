@@ -305,6 +305,48 @@ CC Caption
 
 </section>
 
+<!-- DOWNLOAD POPUP -->
+
+<div id="downloadPopup" class="download-popup">
+
+<h2>📥 Download Video</h2>
+
+<div class="download-option"
+onclick="selectDownloadQuality('720p HD')">
+720p - HD
+</div>
+
+<div class="download-option"
+onclick="selectDownloadQuality('1080p Full HD')">
+1080p - Full HD
+</div>
+
+<div class="download-option"
+onclick="selectDownloadQuality('1440p 2K')">
+1440p - 2K
+</div>
+
+<div class="download-option"
+onclick="selectDownloadQuality('2160p 4K UHD')">
+2160p - 4K UHD
+</div>
+
+<div class="download-progress">
+<span id="downloadProgress"></span>
+</div>
+
+<p id="downloadStatus"
+class="download-status">
+Select Quality
+</p>
+
+<button class="popup-close"
+onclick="closeDownloadPopup()">
+Close
+</button>
+
+</div>
+ 
 <!-- EPISODE DETAILS -->
 
 <section class="episode-details">
