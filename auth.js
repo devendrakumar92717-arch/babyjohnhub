@@ -341,3 +341,91 @@ window.addEventListener("load", function () {
 });
 
 console.log("Authentication Part 4 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Authentication System
+   Part 5/6
+====================================== */
+
+// Generate User ID
+
+function generateUserId() {
+
+    let lastId = Number(localStorage.getItem("bjh_last_user_id")) || 100000;
+
+    lastId++;
+
+    localStorage.setItem("bjh_last_user_id", lastId);
+
+    return "BJH" + lastId;
+
+}
+
+// Create Profile
+
+function createUserProfile(userData) {
+
+    const profile = {
+
+        userId: generateUserId(),
+
+        username: userData.username,
+
+        email: userData.email || "",
+
+        phone: userData.phone || "",
+
+        membership: "Registered",
+
+        profilePhoto: "",
+
+        joinDate: new Date().toLocaleDateString()
+
+    };
+
+    localStorage.setItem(
+
+        "bjh_profile",
+
+        JSON.stringify(profile)
+
+    );
+
+    return profile;
+
+}
+
+// Get Profile
+
+function getUserProfile() {
+
+    return JSON.parse(
+
+        localStorage.getItem("bjh_profile")
+
+    );
+
+}
+
+// Update Profile Photo
+
+function updateProfilePhoto(imageUrl) {
+
+    let profile = getUserProfile();
+
+    if (!profile) return;
+
+    profile.profilePhoto = imageUrl;
+
+    localStorage.setItem(
+
+        "bjh_profile",
+
+        JSON.stringify(profile)
+
+    );
+
+}
+
+console.log("Authentication Part 5 Ready");
