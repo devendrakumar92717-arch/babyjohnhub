@@ -195,3 +195,87 @@ function playEpisode(id) {
     });
 
 }
+/* ======================================
+   BabyJohnHub OTT
+   Episode Navigation System
+====================================== */
+
+// Next Episode
+
+const nextBtn = document.getElementById("nextEpisode");
+
+if (nextBtn) {
+
+    nextBtn.addEventListener("click", function () {
+
+        if (currentEpisode < episodes.length - 1) {
+
+            playEpisode(episodes[currentEpisode + 1].id);
+
+        } else {
+
+            alert("This is the last episode.");
+
+        }
+
+    });
+
+}
+
+// Previous Episode
+
+const prevBtn = document.getElementById("prevEpisode");
+
+if (prevBtn) {
+
+    prevBtn.addEventListener("click", function () {
+
+        if (currentEpisode > 0) {
+
+            playEpisode(episodes[currentEpisode - 1].id);
+
+        } else {
+
+            alert("This is the first episode.");
+
+        }
+
+    });
+
+}
+
+// Search Box Connect
+
+const searchBox = document.getElementById("searchInput");
+
+if (searchBox) {
+
+    searchBox.addEventListener("input", function () {
+
+        const keyword = this.value.toLowerCase();
+
+        const filtered = episodes.filter(function (episode) {
+
+            return episode.title.toLowerCase().includes(keyword);
+
+        });
+
+        renderEpisodes(filtered);
+
+    });
+
+}
+
+// Auto Play First Episode
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    if (episodes.length > 0) {
+
+        playEpisode(episodes[0].id);
+
+    }
+
+});
+
+console.log("Episode System Ready");
