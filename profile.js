@@ -69,3 +69,90 @@ function editUsername(newName) {
 window.addEventListener("load", loadProfile);
 
 console.log("Profile Part 1 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Profile System
+   Part 2/5
+====================================== */
+
+// Get Favorites
+
+function getFavorites() {
+
+    return JSON.parse(
+        localStorage.getItem("bjh_favorites")
+    ) || [];
+
+}
+
+// Save Favorites
+
+function saveFavorites(favorites) {
+
+    localStorage.setItem(
+        "bjh_favorites",
+        JSON.stringify(favorites)
+    );
+
+}
+
+// Add Favorite
+
+function addFavorite(movieId) {
+
+    let favorites = getFavorites();
+
+    if (!favorites.includes(movieId)) {
+
+        favorites.push(movieId);
+
+        saveFavorites(favorites);
+
+    }
+
+}
+
+// Remove Favorite
+
+function removeFavorite(movieId) {
+
+    let favorites = getFavorites();
+
+    favorites = favorites.filter(
+        id => id !== movieId
+    );
+
+    saveFavorites(favorites);
+
+}
+
+// Check Favorite
+
+function isFavorite(movieId) {
+
+    return getFavorites().includes(movieId);
+
+}
+
+// Toggle Favorite
+
+function toggleFavorite(movieId) {
+
+    if (isFavorite(movieId)) {
+
+        removeFavorite(movieId);
+
+        alert("💔 Removed from Favorites");
+
+    } else {
+
+        addFavorite(movieId);
+
+        alert("❤️ Added to Favorites");
+
+    }
+
+}
+
+console.log("Profile Part 2 Ready");
