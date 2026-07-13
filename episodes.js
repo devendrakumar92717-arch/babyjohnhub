@@ -8,6 +8,7 @@ const episodes = [
 {
 id:1,
 title:"Hatim Episode 1",
+description:"Hatim Episode 1",
 video:"videos/episode1.mp4",
 thumbnail:"images/episode1.jpg"
 },
@@ -15,6 +16,7 @@ thumbnail:"images/episode1.jpg"
 {
 id:2,
 title:"Hatim Episode 2",
+description:"Hatim Episode 2",
 video:"videos/episode2.mp4",
 thumbnail:"images/episode2.jpg"
 },
@@ -22,6 +24,7 @@ thumbnail:"images/episode2.jpg"
 {
 id:3,
 title:"Hatim Episode 3",
+description:"Hatim Episode 3",
 video:"videos/episode3.mp4",
 thumbnail:"images/episode3.jpg"
 },
@@ -29,6 +32,7 @@ thumbnail:"images/episode3.jpg"
 {
 id:4,
 title:"Hatim Episode 4",
+description:"Hatim Episode 4",
 video:"videos/episode4.mp4",
 thumbnail:"images/episode4.jpg"
 },
@@ -36,6 +40,7 @@ thumbnail:"images/episode4.jpg"
 {
 id:5,
 title:"Hatim Episode 5",
+description:"Hatim Episode 5",
 video:"videos/episode5.mp4",
 thumbnail:"images/episode5.jpg"
 }
