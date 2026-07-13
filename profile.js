@@ -302,3 +302,89 @@ function clearWatchHistory() {
 }
 
 console.log("Profile Part 4 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Profile System
+   Part 5/5
+====================================== */
+
+// Save Settings
+
+function saveUserSettings(settings) {
+
+    localStorage.setItem(
+
+        "bjh_settings",
+
+        JSON.stringify(settings)
+
+    );
+
+}
+
+// Get Settings
+
+function getUserSettings() {
+
+    return JSON.parse(
+
+        localStorage.getItem("bjh_settings")
+
+    ) || {
+
+        autoplay: true,
+
+        notifications: true,
+
+        language: "English"
+
+    };
+
+}
+
+// Update Setting
+
+function updateSetting(key, value) {
+
+    let settings = getUserSettings();
+
+    settings[key] = value;
+
+    saveUserSettings(settings);
+
+}
+
+// Logout
+
+function logoutProfile() {
+
+    if (confirm("Are you sure you want to logout?")) {
+
+        localStorage.removeItem("bjh_user");
+
+        alert("👋 Logged Out Successfully");
+
+        location.reload();
+
+    }
+
+}
+
+// Open Profile
+
+function openProfile() {
+
+    console.log("Profile Opened");
+
+}
+
+// Close Profile
+
+function closeProfile() {
+
+    console.log("Profile Closed");
+
+}
+
+console.log("BabyJohnHub Profile System Ready");
