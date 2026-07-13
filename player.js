@@ -216,3 +216,68 @@ function selectDownloadQuality(quality){
     startRealDownload(quality);
 
 }
+
+/* ======================================
+   BabyJohnHub OTT
+   Player Controls
+====================================== */
+
+// Forward 10 Seconds
+
+function forward10() {
+
+    player.currentTime += 10;
+
+}
+
+// Backward 10 Seconds
+
+function backward10() {
+
+    player.currentTime -= 10;
+
+}
+
+// Volume Control
+
+const volumeSlider = document.getElementById("volumeSlider");
+
+if (volumeSlider) {
+
+    volumeSlider.addEventListener("input", function () {
+
+        player.volume = this.value / 100;
+
+    });
+
+}
+
+// Speed Control
+
+const speedControl = document.getElementById("speedControl");
+
+if (speedControl) {
+
+    speedControl.addEventListener("change", function () {
+
+        player.playbackRate = Number(this.value);
+
+    });
+
+}
+
+// Auto Reset Speed
+
+player.addEventListener("loadedmetadata", function () {
+
+    if (speedControl) {
+
+        speedControl.value = "1";
+
+    }
+
+    player.playbackRate = 1;
+
+});
+
+console.log("Player Controls Ready");
