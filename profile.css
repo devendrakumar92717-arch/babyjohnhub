@@ -154,3 +154,87 @@ margin-top:8px;
 font-size:14px;
 color:#bbb;
 }
+
+/* ======================================
+   BabyJohnHub OTT
+   Profile System
+   Part 3/4
+====================================== */
+
+/* Membership Section */
+
+.membership-card{
+background:linear-gradient(135deg,#1f1f1f,#2d2d2d);
+padding:20px;
+border-radius:18px;
+margin-top:25px;
+color:#fff;
+box-shadow:0 0 15px rgba(0,0,0,.3);
+}
+
+.membership-card h3{
+margin:0 0 10px;
+font-size:22px;
+color:#ffd700;
+}
+
+.membership-status{
+font-size:16px;
+margin-bottom:15px;
+}
+
+.upgrade-btn{
+width:100%;
+padding:14px;
+background:#ffd700;
+color:#000;
+border:none;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.upgrade-btn:hover{
+transform:scale(1.02);
+}
+
+/* Settings */
+
+.settings-card{
+background:#181818;
+padding:20px;
+border-radius:18px;
+margin-top:25px;
+color:#fff;
+box-shadow:0 0 15px rgba(0,0,0,.3);
+}
+
+.settings-btn{
+display:block;
+width:100%;
+padding:14px;
+margin:10px 0;
+background:#252525;
+color:#fff;
+border:none;
+border-radius:10px;
+text-align:left;
+font-size:15px;
+cursor:pointer;
+transition:.3s;
+}
+
+.settings-btn:hover{
+background:#333;
+}
+
+.logout-btn{
+background:#d32f2f;
+color:#fff;
+}
+
+.logout-btn:hover{
+background:#b71c1c;
+}
