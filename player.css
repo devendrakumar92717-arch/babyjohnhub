@@ -1,1 +1,42 @@
+/* ==========================
+   BabyJohnHub Player V1
+========================== */
 
+.player-buttons{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+justify-content:center;
+margin-top:15px;
+}
+
+.player-buttons button{
+
+background:#e50914;
+color:#fff;
+
+border:none;
+
+padding:12px 18px;
+
+border-radius:8px;
+
+font-size:15px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.player-buttons button:hover{
+
+transform:scale(1.05);
+
+}
+
+.volume-slider{
+
+width:140px;
+
+}
