@@ -429,3 +429,70 @@ function updateProfilePhoto(imageUrl) {
 }
 
 console.log("Authentication Part 5 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Authentication System
+   Part 6/6
+====================================== */
+
+// Forgot Password (Demo)
+
+function forgotPassword() {
+
+    alert(
+        "Password reset feature will be available soon."
+    );
+
+}
+
+// Delete Account (Demo)
+
+function deleteAccount() {
+
+    const confirmDelete = confirm(
+        "Are you sure you want to delete your account?"
+    );
+
+    if (!confirmDelete) return;
+
+    localStorage.removeItem("bjh_user");
+    localStorage.removeItem("bjh_profile");
+
+    currentUser = null;
+
+    alert("Your account has been deleted.");
+
+    location.reload();
+
+}
+
+// Membership Type
+
+function getMembershipType() {
+
+    const profile = getUserProfile();
+
+    if (!profile) return "Guest";
+
+    return profile.membership || "Registered";
+
+}
+
+// Check Premium
+
+function isPremiumUser() {
+
+    return getMembershipType() === "Premium";
+
+}
+
+// Final Startup
+
+window.addEventListener("load", function () {
+
+    checkLogin();
+
+    console.log("BabyJohnHub Authentication Ready");
+
+});
