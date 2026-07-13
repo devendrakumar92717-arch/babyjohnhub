@@ -146,3 +146,52 @@ document.addEventListener("DOMContentLoaded", function(){
     renderEpisodes();
 
 });
+
+/* ======================================
+   BabyJohnHub OTT
+   Play Episode System
+====================================== */
+
+// Current Episode
+
+let currentEpisode = 0;
+
+// Play Episode
+
+function playEpisode(id) {
+
+    const episode = episodes.find(function(item) {
+        return item.id === id;
+    });
+
+    if (!episode) return;
+
+    currentEpisode = episodes.findIndex(function(item) {
+        return item.id === id;
+    });
+
+    // Change Video
+
+    const player = document.getElementById("videoPlayer");
+
+    player.src = episode.video;
+    player.load();
+    player.play();
+
+    // Change Title
+
+    document.getElementById("episodeTitle").innerText =
+        episode.title;
+
+    // Change Description
+
+    document.getElementById("episodeDescription").innerText =
+        "Now Playing : " + episode.title;
+
+    // Scroll to Player
+
+    document.querySelector(".video-player").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
