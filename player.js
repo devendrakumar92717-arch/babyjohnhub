@@ -281,3 +281,69 @@ player.addEventListener("loadedmetadata", function () {
 });
 
 console.log("Player Controls Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Continue Watching System
+====================================== */
+
+// Save Video Position
+
+player.addEventListener("timeupdate", function () {
+
+    localStorage.setItem(
+        "bjh_last_position",
+        player.currentTime
+    );
+
+});
+
+// Resume Video
+
+player.addEventListener("loadedmetadata", function () {
+
+    const lastPosition = localStorage.getItem(
+        "bjh_last_position"
+    );
+
+    if (lastPosition) {
+
+        player.currentTime = Number(lastPosition);
+
+    }
+
+});
+
+// Watch History
+
+function saveWatchHistory(title) {
+
+    let history = JSON.parse(
+        localStorage.getItem("bjh_history")
+    ) || [];
+
+    if (!history.includes(title)) {
+
+        history.push(title);
+
+    }
+
+    localStorage.setItem(
+        "bjh_history",
+        JSON.stringify(history)
+    );
+
+}
+
+// Save Current Episode
+
+player.addEventListener("play", function () {
+
+    const title =
+        document.getElementById("episodeTitle").innerText;
+
+    saveWatchHistory(title);
+
+});
+
+console.log("Continue Watching Ready");
