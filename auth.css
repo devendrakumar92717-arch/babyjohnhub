@@ -156,3 +156,108 @@ text-align:center;
 font-size:24px;
 font-weight:bold;
 }
+
+/* ======================================
+   BabyJohnHub OTT
+   Authentication System
+   Part 3/3
+====================================== */
+
+.profile-card{
+background:#181818;
+border-radius:18px;
+padding:25px;
+margin-top:20px;
+text-align:center;
+color:#fff;
+box-shadow:0 0 20px rgba(0,0,0,.4);
+}
+
+.profile-avatar{
+width:100px;
+height:100px;
+border-radius:50%;
+background:#2b2b2b;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:42px;
+margin:0 auto 15px;
+border:3px solid #e50914;
+overflow:hidden;
+}
+
+.profile-avatar img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.profile-name{
+font-size:22px;
+font-weight:bold;
+margin-bottom:8px;
+}
+
+.profile-id{
+font-size:15px;
+color:#bdbdbd;
+margin-bottom:18px;
+}
+
+.profile-info{
+background:#242424;
+padding:12px;
+border-radius:10px;
+margin:10px 0;
+text-align:left;
+}
+
+.profile-info strong{
+display:block;
+margin-bottom:5px;
+color:#e50914;
+}
+
+.logout-btn{
+width:100%;
+padding:14px;
+margin-top:20px;
+background:#d32f2f;
+color:#fff;
+border:none;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.logout-btn:hover{
+background:#b71c1c;
+}
+
+@media(max-width:768px){
+
+.auth-box,
+.profile-card{
+
+width:95%;
+padding:20px;
+
+}
+
+.profile-avatar{
+
+width:85px;
+height:85px;
+
+}
+
+.profile-name{
+
+font-size:20px;
+
+}
+
+}
