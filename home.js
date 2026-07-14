@@ -353,3 +353,59 @@ function getHomeDashboard() {
 }
 
 console.log("Home Part 5 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Home Page
+   Part 6/6
+====================================== */
+
+// Home Statistics
+
+function getHomeStats() {
+
+    return {
+
+        totalMovies: getMovies().length,
+
+        trending: getTrendingMovies().length,
+
+        featured: getFeaturedMovies().length,
+
+        watchlist: getWatchlist().length
+
+    };
+
+}
+
+// Refresh Home
+
+function refreshHomePage() {
+
+    loadHeroMovies();
+
+    renderHeroBanner();
+
+    console.log("Home Refreshed");
+
+}
+
+// Initialize
+
+window.addEventListener("load", () => {
+
+    initHomePage();
+
+    console.table(getHomeStats());
+
+});
+
+// Auto Refresh Every 5 Minutes
+
+setInterval(() => {
+
+    refreshHomePage();
+
+}, 300000);
+
+console.log("BabyJohnHub Home Ready");
