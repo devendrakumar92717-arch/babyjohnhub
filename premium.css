@@ -230,3 +230,114 @@ border-radius:10px;
 font-size:14px;
 color:#ddd;
 }
+
+/* ======================================
+   BabyJohnHub OTT
+   Premium System
+   Part 4/4
+====================================== */
+
+/* Premium Active Status */
+
+.premium-status-card{
+background:linear-gradient(135deg,#1b1b1b,#2a2a2a);
+border:2px solid #FFD700;
+border-radius:18px;
+padding:20px;
+margin-top:30px;
+color:#fff;
+text-align:center;
+box-shadow:0 0 20px rgba(255,215,0,.2);
+}
+
+.status-icon{
+font-size:55px;
+color:#FFD700;
+margin-bottom:15px;
+}
+
+.status-title{
+font-size:26px;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.status-text{
+font-size:16px;
+color:#ddd;
+margin-bottom:20px;
+}
+
+/* Subscription Info */
+
+.subscription-info{
+background:#252525;
+padding:18px;
+border-radius:12px;
+margin-top:20px;
+text-align:left;
+}
+
+.subscription-info p{
+margin:10px 0;
+font-size:15px;
+}
+
+/* Ads Status */
+
+.ads-status{
+margin-top:20px;
+padding:15px;
+border-radius:12px;
+background:#0f3d1f;
+color:#8cffb2;
+font-weight:bold;
+text-align:center;
+}
+
+.ads-active{
+background:#4a1d1d;
+color:#ffb0b0;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.plan-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.payment-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.premium-card{
+
+padding:20px;
+
+}
+
+.plan-price{
+
+font-size:28px;
+
+}
+
+.payment-title{
+
+font-size:20px;
+
+}
+
+.status-title{
+
+font-size:22px;
+
+}
+
+}
