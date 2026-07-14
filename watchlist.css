@@ -427,3 +427,220 @@ font-size:22px;
 }
 
 }
+
+/* ==========================================================
+   BabyJohnHub OTT
+   Watchlist System
+   watchlist.css
+   Large Part 3 / 3
+========================================================== */
+
+/* ======================================
+   Watch History Card
+====================================== */
+
+.history-card{
+
+    background:#1b1b1b;
+    border-radius:18px;
+    overflow:hidden;
+    position:relative;
+    transition:.35s;
+
+}
+
+.history-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.45);
+
+}
+
+.history-card img{
+
+    width:100%;
+    height:220px;
+    object-fit:cover;
+
+}
+
+/* ======================================
+   Glass Effect
+====================================== */
+
+.glass-effect{
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+}
+
+/* ======================================
+   Trending Badge
+====================================== */
+
+.trending-badge{
+
+    position:absolute;
+
+    top:12px;
+    right:12px;
+
+    background:#ff3b30;
+
+    color:#fff;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+/* ======================================
+   Rating Badge
+====================================== */
+
+.watch-rating{
+
+    position:absolute;
+
+    bottom:15px;
+    right:15px;
+
+    background:#111;
+
+    color:#FFD700;
+
+    padding:8px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+/* ======================================
+   Smooth Animation
+====================================== */
+
+.watch-fade{
+
+    animation:watchFade .45s ease;
+
+}
+
+@keyframes watchFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ======================================
+   Custom Scrollbar
+====================================== */
+
+.watchlist-grid::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.watchlist-grid::-webkit-scrollbar-thumb{
+
+    background:#FFD700;
+
+    border-radius:20px;
+
+}
+
+.watchlist-grid::-webkit-scrollbar-track{
+
+    background:#1b1b1b;
+
+}
+
+/* ======================================
+   Utility Classes
+====================================== */
+
+.hidden{
+
+    display:none !important;
+
+}
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.mt-20{
+
+    margin-top:20px;
+
+}
+
+.mb-20{
+
+    margin-bottom:20px;
+
+}
+
+.w-100{
+
+    width:100%;
+
+}
+
+/* ======================================
+   Performance
+====================================== */
+
+.watch-card,
+.history-card,
+.continue-card,
+.favorite-btn,
+.remove-watch{
+
+    will-change:transform,opacity;
+
+}
+
+/* ======================================
+   End
+====================================== */
+
+.watch-ready{
+
+    border:2px solid #FFD700;
+
+}
