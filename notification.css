@@ -226,3 +226,244 @@
     font-size:15px;
 
 }
+
+/* ==========================================================
+   BabyJohnHub OTT
+   Notification System
+   notification.css
+   Large Part 2 / 3
+========================================================== */
+
+/* ======================================
+   Notification Types
+====================================== */
+
+.notification-movie{
+
+    border-left:5px solid #FFD700;
+
+}
+
+.notification-episode{
+
+    border-left:5px solid #3b82f6;
+
+}
+
+.notification-offer{
+
+    border-left:5px solid #22c55e;
+
+}
+
+.notification-system{
+
+    border-left:5px solid #a855f7;
+
+}
+
+/* ======================================
+   Priority Badge
+====================================== */
+
+.notification-priority{
+
+    position:absolute;
+
+    top:15px;
+    left:15px;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    color:#fff;
+
+}
+
+.priority-high{
+
+    background:#ef4444;
+
+}
+
+.priority-medium{
+
+    background:#f59e0b;
+
+}
+
+.priority-low{
+
+    background:#10b981;
+
+}
+
+/* ======================================
+   Glass Effect
+====================================== */
+
+.notification-glass{
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+}
+
+/* ======================================
+   Hover Effect
+====================================== */
+
+.notification-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        transparent,
+        rgba(255,255,255,.04)
+    );
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.notification-card:hover::before{
+
+    opacity:1;
+
+}
+
+/* ======================================
+   Notification Image
+====================================== */
+
+.notification-image{
+
+    width:90px;
+
+    height:120px;
+
+    border-radius:12px;
+
+    object-fit:cover;
+
+    flex-shrink:0;
+
+}
+
+/* ======================================
+   Read Notification
+====================================== */
+
+.notification-read{
+
+    opacity:.7;
+
+}
+
+.notification-read .unread-dot{
+
+    display:none;
+
+}
+
+/* ======================================
+   Responsive Tablet
+====================================== */
+
+@media(max-width:992px){
+
+.notification-card{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.notification-image{
+
+width:100%;
+
+height:220px;
+
+}
+
+.notification-actions{
+
+width:100%;
+
+}
+
+.notification-btn{
+
+flex:1;
+
+}
+
+}
+
+/* ======================================
+   Responsive Mobile
+====================================== */
+
+@media(max-width:600px){
+
+.notification-section{
+
+padding:35px 20px;
+
+}
+
+.notification-section .section-title{
+
+font-size:26px;
+
+}
+
+.notification-title{
+
+font-size:16px;
+
+}
+
+.notification-message{
+
+font-size:14px;
+
+}
+
+.notification-icon{
+
+width:50px;
+
+height:50px;
+
+font-size:22px;
+
+}
+
+.notification-image{
+
+height:180px;
+
+}
+
+}
