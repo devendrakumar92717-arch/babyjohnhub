@@ -416,3 +416,190 @@ function refreshNotifications(){
 }
 
 console.log("Notification Large Part 2 Ready");
+
+/* ==========================================================
+   BabyJohnHub OTT
+   Notification System
+   notification.js
+   Large Part 3 / 3
+========================================================== */
+
+/* ======================================
+   Clear All Notifications
+====================================== */
+
+function clearNotifications(){
+
+    localStorage.removeItem(
+
+        NOTIFICATION_KEY
+
+    );
+
+    renderNotifications();
+
+}
+
+/* ======================================
+   Notification Statistics
+====================================== */
+
+function getNotificationStats(){
+
+    const list = getNotifications();
+
+    return{
+
+        total:list.length,
+
+        unread:list.filter(
+
+            item=>!item.read
+
+        ).length,
+
+        read:list.filter(
+
+            item=>item.read
+
+        ).length
+
+    };
+
+}
+
+/* ======================================
+   Mark All As Read
+====================================== */
+
+function markAllAsRead(){
+
+    const list = getNotifications();
+
+    list.forEach(item=>{
+
+        item.read=true;
+
+    });
+
+    saveNotifications(list);
+
+    renderNotifications();
+
+}
+
+/* ======================================
+   Search Notifications
+====================================== */
+
+function searchNotifications(keyword){
+
+    keyword=keyword.toLowerCase();
+
+    return getNotifications().filter(item=>{
+
+        return(
+
+            item.title.toLowerCase().includes(keyword)||
+
+            item.message.toLowerCase().includes(keyword)
+
+        );
+
+    });
+
+}
+
+/* ======================================
+   Auto Load
+====================================== */
+
+window.addEventListener("load",()=>{
+
+    renderNotifications();
+
+});
+
+/* ======================================
+   Export Notifications
+====================================== */
+
+function exportNotifications(){
+
+    return JSON.stringify(
+
+        getNotifications(),
+
+        null,
+
+        2
+
+    );
+
+}
+
+/* ======================================
+   Import Notifications
+====================================== */
+
+function importNotifications(data){
+
+    try{
+
+        const list=JSON.parse(data);
+
+        saveNotifications(list);
+
+        renderNotifications();
+
+        console.log("Notifications Imported");
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+/* ======================================
+   Global API
+====================================== */
+
+window.BJHNotification={
+
+    add:addNotification,
+
+    remove:removeNotification,
+
+    clear:clearNotifications,
+
+    markRead:markAsRead,
+
+    markAll:markAllAsRead,
+
+    unread:getUnreadCount,
+
+    stats:getNotificationStats,
+
+    search:searchNotifications,
+
+    export:exportNotifications,
+
+    import:importNotifications
+
+};
+
+/* ======================================
+   Performance
+====================================== */
+
+console.log("==================================");
+console.log(" BabyJohnHub Notifications Ready");
+console.log(" Notification Center Enabled");
+console.log(" Read / Unread Enabled");
+console.log(" Import / Export Enabled");
+console.log(" Statistics Enabled");
+console.log("==================================");
