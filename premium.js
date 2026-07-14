@@ -249,3 +249,71 @@ function startPremiumPayment() {
     alert("Redirecting to Payment...");
 
 }
+
+/* ======================================
+   BabyJohnHub OTT
+   Premium System
+   Part 5/6
+====================================== */
+
+// Payment Success
+
+function paymentSuccess() {
+
+    if (!selectedPlan) {
+
+        alert("No Premium Plan Selected.");
+
+        return;
+
+    }
+
+    savePremium(selectedPlan);
+
+    alert("🎉 Premium Activated Successfully!");
+
+    updateAds();
+
+}
+
+// Payment Failed
+
+function paymentFailed() {
+
+    alert("❌ Payment Failed. Please try again.");
+
+}
+
+// Payment Cancelled
+
+function paymentCancelled() {
+
+    alert("⚠️ Payment Cancelled.");
+
+}
+
+// Payment Pending
+
+function paymentPending() {
+
+    alert("⏳ Your payment is under verification.");
+
+}
+
+// Check Premium After Payment
+
+function refreshPremiumStatus() {
+
+    if (isPremiumActive()) {
+
+        console.log("Premium Active");
+
+    } else {
+
+        console.log("Premium Inactive");
+
+    }
+
+}
+
+console.log("Premium Part 5 Ready");
