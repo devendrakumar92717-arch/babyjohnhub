@@ -223,3 +223,202 @@ function searchMovies() {
 }
 
 console.log("Search Large Part 1 Ready");
+
+/* ==========================================================
+   BabyJohnHub OTT
+   Search System
+   search.js
+   Large Part 2 / 3
+========================================================== */
+
+/* ======================================
+   Filter Movies
+====================================== */
+
+function filterMovies() {
+
+    const keyword = searchInput.value.trim().toLowerCase();
+
+    const genre = genreFilter.value;
+
+    const language = languageFilter.value;
+
+    const year = yearFilter.value;
+
+    let movies = getSearchMovies();
+
+    movies = movies.filter(movie => {
+
+        const matchKeyword =
+
+            !keyword ||
+
+            movie.name.toLowerCase().includes(keyword) ||
+
+            (movie.description || "")
+            .toLowerCase()
+            .includes(keyword);
+
+        const matchGenre =
+
+            !genre ||
+
+            movie.genre === genre;
+
+        const matchLanguage =
+
+            !language ||
+
+            movie.language === language;
+
+        const matchYear =
+
+            !year ||
+
+            String(movie.year) === String(year);
+
+        return (
+
+            matchKeyword &&
+
+            matchGenre &&
+
+            matchLanguage &&
+
+            matchYear
+
+        );
+
+    });
+
+    renderSearchResults(movies);
+
+}
+
+/* ======================================
+   Live Search
+====================================== */
+
+searchInput.addEventListener(
+
+    "input",
+
+    filterMovies
+
+);
+
+/* ======================================
+   Search Button
+====================================== */
+
+searchBtn.addEventListener(
+
+    "click",
+
+    filterMovies
+
+);
+
+/* ======================================
+   Filter Events
+====================================== */
+
+genreFilter.addEventListener(
+
+    "change",
+
+    filterMovies
+
+);
+
+languageFilter.addEventListener(
+
+    "change",
+
+    filterMovies
+
+);
+
+yearFilter.addEventListener(
+
+    "change",
+
+    filterMovies
+
+);
+
+/* ======================================
+   Enter Key Search
+====================================== */
+
+searchInput.addEventListener(
+
+    "keydown",
+
+    function(e){
+
+        if(e.key==="Enter"){
+
+            filterMovies();
+
+        }
+
+    }
+
+);
+
+/* ======================================
+   Clear Search
+====================================== */
+
+function clearSearch(){
+
+    searchInput.value="";
+
+    genreFilter.value="";
+
+    languageFilter.value="";
+
+    yearFilter.value="";
+
+    filterMovies();
+
+}
+
+/* ======================================
+   Load Recent Searches
+====================================== */
+
+function loadRecentSearches(){
+
+    const history = getSearchHistory();
+
+    const recentBox =
+
+        document.getElementById(
+
+            "recentSearches"
+
+        );
+
+    if(!recentBox) return;
+
+    recentBox.innerHTML="";
+
+    history.forEach(item=>{
+
+        recentBox.innerHTML+=`
+
+        <span class="recent-item">
+
+            ${item}
+
+        </span>
+
+        `;
+
+    });
+
+}
+
+console.log("Search Large Part 2 Ready");
