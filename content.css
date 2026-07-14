@@ -176,3 +176,81 @@ transition:.3s;
 .save-content-btn:hover{
 transform:scale(1.03);
 }
+
+/* ======================================
+   BabyJohnHub OTT
+   Content Management
+   Part 3/5
+====================================== */
+
+/* Extra Movie Details */
+
+.details-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+margin-top:20px;
+}
+
+.detail-card{
+background:#202020;
+padding:18px;
+border-radius:12px;
+border:2px solid #333;
+transition:.3s;
+}
+
+.detail-card:hover{
+border-color:#FFD700;
+}
+
+.detail-title{
+font-size:15px;
+font-weight:bold;
+color:#FFD700;
+margin-bottom:8px;
+}
+
+.detail-value{
+font-size:15px;
+color:#ddd;
+}
+
+/* Featured Movie */
+
+.featured-box{
+margin-top:25px;
+padding:18px;
+background:#222;
+border-radius:12px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.featured-label{
+font-size:17px;
+font-weight:bold;
+color:#FFD700;
+}
+
+.featured-switch{
+transform:scale(1.3);
+cursor:pointer;
+}
+
+/* Poster Preview */
+
+.poster-preview{
+margin-top:25px;
+text-align:center;
+}
+
+.poster-preview img{
+width:220px;
+height:320px;
+object-fit:cover;
+border-radius:14px;
+border:3px solid #FFD700;
+background:#333;
+}
