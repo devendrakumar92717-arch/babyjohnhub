@@ -130,3 +130,75 @@ function getRecentlyAdded(limit = 10) {
 }
 
 console.log("Content Part 2 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Content Management
+   Part 3/6
+====================================== */
+
+// Search Movies
+
+function searchMovies(keyword) {
+
+    keyword = keyword.toLowerCase();
+
+    return getMovies().filter(movie =>
+
+        (movie.name || "").toLowerCase().includes(keyword) ||
+
+        (movie.description || "").toLowerCase().includes(keyword)
+
+    );
+
+}
+
+// Category Filter
+
+function filterByCategory(category) {
+
+    if (category === "All") {
+
+        return getMovies();
+
+    }
+
+    return getMovies().filter(movie =>
+
+        movie.category === category
+
+    );
+
+}
+
+// Language Filter
+
+function filterByLanguage(language) {
+
+    if (language === "All") {
+
+        return getMovies();
+
+    }
+
+    return getMovies().filter(movie =>
+
+        movie.language === language
+
+    );
+
+}
+
+// Rating Filter
+
+function filterByRating(minRating) {
+
+    return getMovies().filter(movie =>
+
+        Number(movie.rating || 0) >= minRating
+
+    );
+
+}
+
+console.log("Content Part 3 Ready");
