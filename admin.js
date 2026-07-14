@@ -389,3 +389,71 @@ function deleteEpisode(episodeId) {
 }
 
 console.log("Admin Part 5 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Admin Panel
+   Part 6/6
+====================================== */
+
+// Dashboard Statistics
+
+function getDashboardStats() {
+
+    const users = getAllUsers();
+    const movies = getAllMovies();
+    const episodes = getAllEpisodes();
+
+    return {
+
+        totalUsers: users.length,
+
+        totalMovies: movies.length,
+
+        totalEpisodes: episodes.length,
+
+        premiumUsers: users.filter(user => user.premium).length,
+
+        admins: users.filter(user => user.role === "Admin").length
+
+    };
+
+}
+
+// Super Admin Check
+
+function isSuperAdmin() {
+
+    const admin = getCurrentAdmin();
+
+    if (!admin) return false;
+
+    return admin.role === "Super Admin";
+
+}
+
+// Initialize Admin Panel
+
+function initAdminPanel() {
+
+    if (!isAdminLoggedIn()) {
+
+        console.log("Admin Login Required");
+
+        return;
+
+    }
+
+    console.log("Welcome to BabyJohnHub Admin Panel");
+
+    console.table(getDashboardStats());
+
+}
+
+window.addEventListener("load", function () {
+
+    initAdminPanel();
+
+});
+
+console.log("BabyJohnHub Admin Panel Ready");
