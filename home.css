@@ -1,1 +1,84 @@
 
+/* ======================================
+   BabyJohnHub OTT
+   Home Page
+   Part 1/6
+====================================== */
+
+.hero-banner{
+position:relative;
+width:100%;
+height:75vh;
+overflow:hidden;
+border-radius:20px;
+margin:20px 0;
+background:#111;
+}
+
+.hero-image{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.hero-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(
+to top,
+rgba(0,0,0,.95),
+rgba(0,0,0,.2)
+);
+display:flex;
+align-items:flex-end;
+padding:40px;
+}
+
+.hero-content{
+max-width:650px;
+color:#fff;
+}
+
+.hero-title{
+font-size:48px;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+.hero-description{
+font-size:18px;
+color:#ddd;
+line-height:1.6;
+margin-bottom:25px;
+}
+
+.hero-buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.hero-btn{
+padding:14px 26px;
+border:none;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.play-btn{
+background:#FFD700;
+color:#000;
+}
+
+.info-btn{
+background:rgba(255,255,255,.2);
+color:#fff;
+backdrop-filter:blur(10px);
+}
+
+.hero-btn:hover{
+transform:scale(1.05);
+}
