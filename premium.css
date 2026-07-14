@@ -158,3 +158,75 @@ border-radius:20px;
 font-size:12px;
 font-weight:bold;
 }
+
+/* ======================================
+   BabyJohnHub OTT
+   Premium System
+   Part 3/4
+====================================== */
+
+/* Payment Methods */
+
+.payment-section{
+margin-top:35px;
+background:#181818;
+padding:25px;
+border-radius:18px;
+color:#fff;
+}
+
+.payment-title{
+font-size:24px;
+font-weight:bold;
+margin-bottom:20px;
+text-align:center;
+}
+
+.payment-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+}
+
+.payment-card{
+background:#252525;
+border:2px solid transparent;
+border-radius:14px;
+padding:18px;
+text-align:center;
+cursor:pointer;
+transition:.3s;
+}
+
+.payment-card:hover{
+border-color:#FFD700;
+transform:translateY(-3px);
+}
+
+.payment-icon{
+font-size:36px;
+margin-bottom:10px;
+color:#FFD700;
+}
+
+.payment-name{
+font-size:16px;
+font-weight:bold;
+}
+
+.selected-payment{
+border-color:#FFD700;
+background:#2f2a12;
+}
+
+/* Payment Notice */
+
+.payment-note{
+margin-top:20px;
+padding:15px;
+background:#2a2a2a;
+border-left:4px solid #FFD700;
+border-radius:10px;
+font-size:14px;
+color:#ddd;
+}
