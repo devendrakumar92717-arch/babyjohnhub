@@ -279,3 +279,77 @@ function getRecommendedForHome(limit = 10) {
 }
 
 console.log("Home Part 4 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Home Page
+   Part 5/6
+====================================== */
+
+// Watchlist
+
+function getWatchlist() {
+
+    return JSON.parse(
+        localStorage.getItem("bjh_watchlist")
+    ) || [];
+
+}
+
+// Recently Watched
+
+function getRecentlyWatched(limit = 10) {
+
+    return JSON.parse(
+        localStorage.getItem("bjh_recently_watched")
+    ) || [];
+
+}
+
+// Continue Watching Progress
+
+function getContinueWatchingProgress() {
+
+    return JSON.parse(
+        localStorage.getItem("bjh_continue")
+    ) || [];
+
+}
+
+// Popular This Week
+
+function getPopularThisWeek(limit = 10) {
+
+    return getMovies()
+
+        .sort((a, b) =>
+
+            (b.weeklyViews || 0) -
+
+            (a.weeklyViews || 0)
+
+        )
+
+        .slice(0, limit);
+
+}
+
+// Home Dashboard
+
+function getHomeDashboard() {
+
+    return {
+
+        watchlist: getWatchlist(),
+
+        recentlyWatched: getRecentlyWatched(),
+
+        continueWatching: getContinueWatchingProgress(),
+
+        popularThisWeek: getPopularThisWeek()
+
+    };
+
+}
+
+console.log("Home Part 5 Ready");
