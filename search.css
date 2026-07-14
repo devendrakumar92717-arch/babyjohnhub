@@ -451,3 +451,171 @@ font-size:22px;
 }
 
 }
+
+/* ===================================
+   Premium Badges
+=================================== */
+
+.badge-container{
+    position:absolute;
+    top:12px;
+    left:12px;
+    display:flex;
+    gap:8px;
+    z-index:5;
+}
+
+.badge{
+    padding:6px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:700;
+    color:#fff;
+}
+
+.badge-new{
+    background:#16a34a;
+}
+
+.badge-hot{
+    background:#dc2626;
+}
+
+.badge-premium{
+    background:#FFD700;
+    color:#000;
+}
+
+/* ===================================
+   Rating Badge
+=================================== */
+
+.rating-badge{
+    position:absolute;
+    top:12px;
+    right:12px;
+    background:#111;
+    color:#FFD700;
+    padding:6px 10px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:700;
+    z-index:5;
+}
+
+/* ===================================
+   Hover Animation
+=================================== */
+
+.search-card{
+    overflow:hidden;
+}
+
+.search-card img{
+    transition:transform .4s ease;
+}
+
+.search-card:hover img{
+    transform:scale(1.08);
+}
+
+/* ===================================
+   Glass Effect
+=================================== */
+
+.glass-card{
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+}
+
+/* ===================================
+   Custom Scrollbar
+=================================== */
+
+.search-results::-webkit-scrollbar{
+    width:8px;
+}
+
+.search-results::-webkit-scrollbar-thumb{
+    background:#FFD700;
+    border-radius:20px;
+}
+
+.search-results::-webkit-scrollbar-track{
+    background:#1b1b1b;
+}
+
+/* ===================================
+   Fade Animation
+=================================== */
+
+.fade-up{
+    animation:fadeUp .5s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ===================================
+   Utility Classes
+=================================== */
+
+.hidden{
+    display:none !important;
+}
+
+.text-center{
+    text-align:center;
+}
+
+.mt-20{
+    margin-top:20px;
+}
+
+.mt-30{
+    margin-top:30px;
+}
+
+.mb-20{
+    margin-bottom:20px;
+}
+
+.w-100{
+    width:100%;
+}
+
+/* ===================================
+   Performance
+=================================== */
+
+.search-card,
+.search-card img,
+.search-overlay,
+.search-tag,
+.voice-search-btn{
+
+    will-change:transform,opacity;
+
+}
+
+/* ===================================
+   End
+=================================== */
+
+.search-ready{
+    border:2px solid #FFD700;
+}
