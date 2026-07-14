@@ -317,3 +317,83 @@ function refreshPremiumStatus() {
 }
 
 console.log("Premium Part 5 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Premium System
+   Part 6/6
+====================================== */
+
+// Check Subscription Status
+
+function checkPremiumStatus() {
+
+    const premium = getPremium();
+
+    if (!premium) {
+
+        console.log("Guest / Registered User");
+
+        return;
+
+    }
+
+    const expiry = new Date(premium.expiryDate);
+
+    const now = new Date();
+
+    if (now > expiry) {
+
+        localStorage.removeItem("bjh_premium");
+
+        console.log("Premium Expired");
+
+        updateAds();
+
+        return;
+
+    }
+
+    console.log("Premium Active");
+
+}
+
+// Get Remaining Days
+
+function getRemainingDays() {
+
+    const premium = getPremium();
+
+    if (!premium) return 0;
+
+    const expiry = new Date(premium.expiryDate);
+
+    const now = new Date();
+
+    return Math.max(
+
+        0,
+
+        Math.ceil(
+
+            (expiry - now) /
+
+            (1000 * 60 * 60 * 24)
+
+        )
+
+    );
+
+}
+
+// Run on Website Load
+
+window.addEventListener("load", function () {
+
+    checkPremiumStatus();
+
+    updateAds();
+
+});
+
+console.log("BabyJohnHub Premium System Ready");
