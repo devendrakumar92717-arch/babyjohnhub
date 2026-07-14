@@ -166,3 +166,86 @@ color:#fff;
 background:#E53935;
 color:#fff;
 }
+
+/* ======================================
+   BabyJohnHub OTT
+   Admin Panel
+   Part 3/5
+====================================== */
+
+/* User Management */
+
+.user-section{
+background:#181818;
+padding:20px;
+border-radius:18px;
+margin-top:30px;
+color:#fff;
+}
+
+.user-table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+.user-table th,
+.user-table td{
+padding:12px;
+text-align:left;
+border-bottom:1px solid #333;
+}
+
+.user-table th{
+background:#252525;
+color:#FFD700;
+}
+
+.admin-badge{
+display:inline-block;
+padding:5px 12px;
+background:#FFD700;
+color:#000;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+}
+
+.premium-badge{
+display:inline-block;
+padding:5px 12px;
+background:#2E7D32;
+color:#fff;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+}
+
+.make-admin-btn{
+background:#1976D2;
+color:#fff;
+padding:8px 14px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+margin-right:8px;
+}
+
+.remove-admin-btn{
+background:#F57C00;
+color:#fff;
+padding:8px 14px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+margin-right:8px;
+}
+
+.block-user-btn{
+background:#D32F2F;
+color:#fff;
+padding:8px 14px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
