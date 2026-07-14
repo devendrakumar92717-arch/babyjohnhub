@@ -227,3 +227,192 @@ function renderNotifications(){
 }
 
 console.log("Notification Large Part 1 Ready");
+
+/* ==========================================================
+   BabyJohnHub OTT
+   Notification System
+   notification.js
+   Large Part 2 / 3
+========================================================== */
+
+/* ======================================
+   Button Events
+====================================== */
+
+document.addEventListener("click",function(e){
+
+    /* Mark as Read */
+
+    if(e.target.classList.contains("mark-read")){
+
+        const id = Number(
+
+            e.target.dataset.id
+
+        );
+
+        markAsRead(id);
+
+    }
+
+    /* Delete Notification */
+
+    if(e.target.classList.contains("delete-notification")){
+
+        const id = Number(
+
+            e.target.dataset.id
+
+        );
+
+        removeNotification(id);
+
+    }
+
+});
+
+/* ======================================
+   Movie Notification
+====================================== */
+
+function notifyNewMovie(movie){
+
+    addNotification({
+
+        title:"🎬 New Movie Added",
+
+        message:`${movie.name} is now available.`,
+
+        type:"movie",
+
+        priority:"high"
+
+    });
+
+}
+
+/* ======================================
+   Episode Notification
+====================================== */
+
+function notifyNewEpisode(series,episode){
+
+    addNotification({
+
+        title:"📺 New Episode",
+
+        message:`${series} Episode ${episode} is available.`,
+
+        type:"episode",
+
+        priority:"high"
+
+    });
+
+}
+
+/* ======================================
+   Watchlist Notification
+====================================== */
+
+function notifyWatchlist(movie){
+
+    addNotification({
+
+        title:"❤️ Watchlist Updated",
+
+        message:`${movie.name} added to your Watchlist.`,
+
+        type:"system",
+
+        priority:"medium"
+
+    });
+
+}
+
+/* ======================================
+   Favorite Notification
+====================================== */
+
+function notifyFavorite(movie){
+
+    addNotification({
+
+        title:"⭐ Favorite Added",
+
+        message:`${movie.name} added to Favorites.`,
+
+        type:"system",
+
+        priority:"medium"
+
+    });
+
+}
+
+/* ======================================
+   Offer Notification
+====================================== */
+
+function notifyOffer(title,message){
+
+    addNotification({
+
+        title:title,
+
+        message:message,
+
+        type:"offer",
+
+        priority:"low"
+
+    });
+
+}
+
+/* ======================================
+   Announcement
+====================================== */
+
+function notifyAnnouncement(message){
+
+    addNotification({
+
+        title:"📢 Announcement",
+
+        message:message,
+
+        type:"system",
+
+        priority:"high"
+
+    });
+
+}
+
+/* ======================================
+   Unread Count
+====================================== */
+
+function getUnreadCount(){
+
+    return getNotifications().filter(
+
+        item=>!item.read
+
+    ).length;
+
+}
+
+/* ======================================
+   Refresh Notifications
+====================================== */
+
+function refreshNotifications(){
+
+    renderNotifications();
+
+}
+
+console.log("Notification Large Part 2 Ready");
