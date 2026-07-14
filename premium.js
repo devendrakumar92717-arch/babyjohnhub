@@ -59,3 +59,67 @@ function getSelectedPlan() {
 }
 
 console.log("Premium Part 1 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Premium System
+   Part 2/6
+====================================== */
+
+// Save Premium
+
+function savePremium(plan) {
+
+    const startDate = new Date();
+
+    const expiryDate = new Date();
+
+    expiryDate.setDate(
+        startDate.getDate() + plan.duration
+    );
+
+    const premiumData = {
+
+        active: true,
+
+        plan: plan.id,
+
+        planName: plan.name,
+
+        startDate: startDate.toISOString(),
+
+        expiryDate: expiryDate.toISOString()
+
+    };
+
+    localStorage.setItem(
+        "bjh_premium",
+        JSON.stringify(premiumData)
+    );
+
+}
+
+// Get Premium
+
+function getPremium() {
+
+    return JSON.parse(
+        localStorage.getItem("bjh_premium")
+    );
+
+}
+
+// Check Premium
+
+function isPremiumActive() {
+
+    const premium = getPremium();
+
+    if (!premium) return false;
+
+    return new Date() <
+        new Date(premium.expiryDate);
+
+}
+
+console.log("Premium Part 2 Ready");
