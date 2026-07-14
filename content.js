@@ -345,3 +345,94 @@ function getRecommendedMovies(limit = 10) {
 }
 
 console.log("Content Part 5 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Content Management
+   Part 6/6
+====================================== */
+
+// Increase Movie Views
+
+function increaseMovieViews(movieId) {
+
+    const movies = getMovies().map(movie => {
+
+        if (movie.id === movieId) {
+
+            movie.views = (movie.views || 0) + 1;
+
+        }
+
+        return movie;
+
+    });
+
+    saveMovies(movies);
+
+}
+
+// Toggle Like
+
+function toggleMovieLike(movieId) {
+
+    const movies = getMovies().map(movie => {
+
+        if (movie.id === movieId) {
+
+            movie.likes = (movie.likes || 0) + 1;
+
+        }
+
+        return movie;
+
+    });
+
+    saveMovies(movies);
+
+}
+
+// Increase Share Count
+
+function increaseShareCount(movieId) {
+
+    const movies = getMovies().map(movie => {
+
+        if (movie.id === movieId) {
+
+            movie.shares = (movie.shares || 0) + 1;
+
+        }
+
+        return movie;
+
+    });
+
+    saveMovies(movies);
+
+}
+
+// Content Statistics
+
+function getContentStats() {
+
+    const movies = getMovies();
+    const episodes = getEpisodes();
+
+    return {
+
+        totalMovies: movies.length,
+
+        totalEpisodes: episodes.length,
+
+        totalViews: movies.reduce((sum, movie) => sum + (movie.views || 0), 0),
+
+        totalLikes: movies.reduce((sum, movie) => sum + (movie.likes || 0), 0),
+
+        totalShares: movies.reduce((sum, movie) => sum + (movie.shares || 0), 0)
+
+    };
+
+}
+
+console.log("BabyJohnHub Content System Ready");
