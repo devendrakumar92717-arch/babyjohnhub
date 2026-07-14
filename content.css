@@ -254,3 +254,112 @@ border-radius:14px;
 border:3px solid #FFD700;
 background:#333;
 }
+
+/* ======================================
+   BabyJohnHub OTT
+   Content Management
+   Part 4/5
+====================================== */
+
+/* Episode Management */
+
+.episode-section{
+background:#181818;
+padding:25px;
+border-radius:18px;
+margin-top:30px;
+color:#fff;
+}
+
+.episode-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.episode-title{
+font-size:24px;
+font-weight:bold;
+color:#FFD700;
+}
+
+.add-episode-btn{
+background:#FFD700;
+color:#000;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.add-episode-btn:hover{
+transform:scale(1.05);
+}
+
+.season-select{
+width:220px;
+padding:12px;
+background:#2a2a2a;
+color:#fff;
+border:2px solid #333;
+border-radius:10px;
+outline:none;
+}
+
+.season-select:focus{
+border-color:#FFD700;
+}
+
+.episode-list{
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.episode-card{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#222;
+padding:15px;
+border-radius:12px;
+border:2px solid transparent;
+transition:.3s;
+}
+
+.episode-card:hover{
+border-color:#FFD700;
+}
+
+.episode-name{
+font-size:17px;
+font-weight:bold;
+color:#fff;
+}
+
+.episode-actions{
+display:flex;
+gap:10px;
+}
+
+.edit-episode-btn{
+background:#2196F3;
+color:#fff;
+border:none;
+padding:8px 14px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.delete-episode-btn{
+background:#E53935;
+color:#fff;
+border:none;
+padding:8px 14px;
+border-radius:8px;
+cursor:pointer;
+}
