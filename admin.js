@@ -66,3 +66,80 @@ function isAdminLoggedIn() {
 }
 
 console.log("Admin Part 1 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Admin Panel
+   Part 2/6
+====================================== */
+
+// Get All Users
+
+function getAllUsers() {
+
+    return JSON.parse(
+        localStorage.getItem("bjh_users")
+    ) || [];
+
+}
+
+// Save Users
+
+function saveAllUsers(users) {
+
+    localStorage.setItem(
+        "bjh_users",
+        JSON.stringify(users)
+    );
+
+}
+
+// Make Admin
+
+function makeAdmin(userId) {
+
+    let users = getAllUsers();
+
+    users = users.map(user => {
+
+        if (user.id === userId) {
+
+            user.role = "Admin";
+
+        }
+
+        return user;
+
+    });
+
+    saveAllUsers(users);
+
+    console.log("Admin Added");
+
+}
+
+// Remove Admin
+
+function removeAdmin(userId) {
+
+    let users = getAllUsers();
+
+    users = users.map(user => {
+
+        if (user.id === userId) {
+
+            user.role = "User";
+
+        }
+
+        return user;
+
+    });
+
+    saveAllUsers(users);
+
+    console.log("Admin Removed");
+
+}
+
+console.log("Admin Part 2 Ready");
