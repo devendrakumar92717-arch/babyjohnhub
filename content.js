@@ -202,3 +202,84 @@ function filterByRating(minRating) {
 }
 
 console.log("Content Part 3 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Content Management
+   Part 4/6
+====================================== */
+
+// Get Episodes
+
+function getEpisodes() {
+
+    return JSON.parse(
+        localStorage.getItem("bjh_episodes")
+    ) || [];
+
+}
+
+// Save Episodes
+
+function saveEpisodes(episodes) {
+
+    localStorage.setItem(
+        "bjh_episodes",
+        JSON.stringify(episodes)
+    );
+
+}
+
+// Add Episode
+
+function addEpisode(episodeData) {
+
+    const episodes = getEpisodes();
+
+    episodeData.id = Date.now().toString();
+
+    episodeData.createdAt = new Date().toISOString();
+
+    episodes.push(episodeData);
+
+    saveEpisodes(episodes);
+
+    console.log("Episode Added Successfully");
+
+}
+
+// Update Episode
+
+function updateEpisode(episodeId, updatedData) {
+
+    let episodes = getEpisodes();
+
+    episodes = episodes.map(ep =>
+
+        ep.id === episodeId
+            ? { ...ep, ...updatedData }
+            : ep
+
+    );
+
+    saveEpisodes(episodes);
+
+    console.log("Episode Updated");
+
+}
+
+// Delete Episode
+
+function deleteEpisode(episodeId) {
+
+    const episodes = getEpisodes().filter(
+
+        ep => ep.id !== episodeId
+
+    );
+
+    saveEpisodes(episodes);
+
+    console.log("Episode Deleted");
+
+}
