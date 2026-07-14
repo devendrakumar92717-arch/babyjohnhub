@@ -363,3 +363,95 @@ padding:8px 14px;
 border-radius:8px;
 cursor:pointer;
 }
+
+/* ======================================
+   BabyJohnHub OTT
+   Content Management
+   Part 5/5
+====================================== */
+
+/* Responsive */
+
+@media (max-width:768px){
+
+.content-header,
+.episode-header{
+flex-direction:column;
+align-items:flex-start;
+gap:15px;
+}
+
+.content-grid{
+grid-template-columns:1fr;
+}
+
+.form-row{
+grid-template-columns:1fr;
+}
+
+.details-grid{
+grid-template-columns:1fr;
+}
+
+.content-poster{
+height:300px;
+}
+
+.poster-preview img{
+width:180px;
+height:260px;
+}
+
+.season-select{
+width:100%;
+}
+
+.episode-card{
+flex-direction:column;
+align-items:flex-start;
+gap:15px;
+}
+
+.episode-actions{
+width:100%;
+display:flex;
+justify-content:space-between;
+}
+
+}
+
+/* Smooth Animations */
+
+.content-card,
+.detail-card,
+.episode-card,
+.add-content-btn,
+.add-episode-btn,
+.save-content-btn{
+transition:all .3s ease;
+}
+
+.content-card:hover,
+.detail-card:hover,
+.episode-card:hover{
+box-shadow:0 8px 20px rgba(255,215,0,.25);
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-track{
+background:#1a1a1a;
+}
+
+::-webkit-scrollbar-thumb{
+background:#FFD700;
+border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+background:#ffea70;
+}
