@@ -207,3 +207,75 @@ function getHomeSections() {
 }
 
 console.log("Home Part 3 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Home Page
+   Part 4/6
+====================================== */
+
+// Search Movies
+
+function homeSearch(query) {
+
+    query = query.toLowerCase();
+
+    return getMovies().filter(movie =>
+
+        (movie.name || "").toLowerCase().includes(query) ||
+
+        (movie.description || "").toLowerCase().includes(query)
+
+    );
+
+}
+
+// Category Filter
+
+function getMoviesByCategory(category) {
+
+    if (category === "All") {
+
+        return getMovies();
+
+    }
+
+    return getMovies().filter(movie =>
+
+        movie.category === category
+
+    );
+
+}
+
+// Language Filter
+
+function getMoviesByLanguage(language) {
+
+    if (language === "All") {
+
+        return getMovies();
+
+    }
+
+    return getMovies().filter(movie =>
+
+        movie.language === language
+
+    );
+
+}
+
+// Smart Recommendation
+
+function getRecommendedForHome(limit = 10) {
+
+    return getMovies()
+
+        .filter(movie => movie.featured)
+
+        .slice(0, limit);
+
+}
+
+console.log("Home Part 4 Ready");
