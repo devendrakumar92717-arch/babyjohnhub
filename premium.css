@@ -66,3 +66,95 @@ transition:.3s;
 .premium-btn:hover{
 transform:scale(1.02);
 }
+
+/* ======================================
+   BabyJohnHub OTT
+   Premium System
+   Part 2/4
+====================================== */
+
+.plan-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.plan-card{
+background:#181818;
+border:2px solid #333;
+border-radius:18px;
+padding:20px;
+text-align:center;
+color:#fff;
+transition:.3s;
+position:relative;
+}
+
+.plan-card:hover{
+border-color:#FFD700;
+transform:translateY(-5px);
+}
+
+.plan-name{
+font-size:22px;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.plan-price{
+font-size:34px;
+font-weight:bold;
+color:#FFD700;
+margin:15px 0;
+}
+
+.plan-duration{
+font-size:15px;
+color:#bbb;
+margin-bottom:20px;
+}
+
+.plan-features{
+list-style:none;
+padding:0;
+margin:0 0 20px;
+}
+
+.plan-features li{
+padding:8px 0;
+border-bottom:1px solid #333;
+}
+
+.plan-features li:last-child{
+border-bottom:none;
+}
+
+.buy-plan-btn{
+width:100%;
+padding:14px;
+background:#FFD700;
+color:#000;
+border:none;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.buy-plan-btn:hover{
+background:#ffea70;
+}
+
+.best-value{
+position:absolute;
+top:-12px;
+right:15px;
+background:#e50914;
+color:#fff;
+padding:5px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+}
