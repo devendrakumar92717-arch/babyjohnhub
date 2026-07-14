@@ -73,3 +73,75 @@ function previousHeroSlide() {
 }
 
 console.log("Home Part 1 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Home Page
+   Part 2/6
+====================================== */
+
+// Render Hero Banner
+
+function renderHeroBanner() {
+
+    const movie = getCurrentHeroMovie();
+
+    if (!movie) return;
+
+    console.log("Hero Banner:", movie.name);
+
+    // HTML Update बाद में करेंगे
+
+}
+
+// Auto Slider
+
+function startHeroSlider() {
+
+    setInterval(() => {
+
+        nextHeroSlide();
+
+    }, 5000);
+
+}
+
+// Slider Dots
+
+function getHeroDots() {
+
+    return heroMovies.map((movie, index) => ({
+
+        index,
+
+        active: index === currentHeroSlide
+
+    }));
+
+}
+
+// Go To Slide
+
+function goToHeroSlide(index) {
+
+    if (index < 0 || index >= heroMovies.length) return;
+
+    currentHeroSlide = index;
+
+    renderHeroBanner();
+
+}
+
+// Initialize Home
+
+function initHomePage() {
+
+    loadHeroMovies();
+
+    renderHeroBanner();
+
+    startHeroSlider();
+
+}
+
+console.log("Home Part 2 Ready");
