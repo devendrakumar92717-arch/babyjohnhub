@@ -312,3 +312,80 @@ function deleteMovie(movieId) {
 }
 
 console.log("Admin Part 4 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Admin Panel
+   Part 5/6
+====================================== */
+
+// Get Episodes
+
+function getAllEpisodes() {
+
+    return JSON.parse(
+        localStorage.getItem("bjh_episodes")
+    ) || [];
+
+}
+
+// Save Episodes
+
+function saveAllEpisodes(episodes) {
+
+    localStorage.setItem(
+        "bjh_episodes",
+        JSON.stringify(episodes)
+    );
+
+}
+
+// Add Episode
+
+function addEpisode(episode) {
+
+    const episodes = getAllEpisodes();
+
+    episodes.push(episode);
+
+    saveAllEpisodes(episodes);
+
+    console.log("Episode Added");
+
+}
+
+// Edit Episode
+
+function editEpisode(episodeId, updatedEpisode) {
+
+    let episodes = getAllEpisodes();
+
+    episodes = episodes.map(ep =>
+
+        ep.id === episodeId
+            ? { ...ep, ...updatedEpisode }
+            : ep
+
+    );
+
+    saveAllEpisodes(episodes);
+
+    console.log("Episode Updated");
+
+}
+
+// Delete Episode
+
+function deleteEpisode(episodeId) {
+
+    const episodes = getAllEpisodes().filter(
+        ep => ep.id !== episodeId
+    );
+
+    saveAllEpisodes(episodes);
+
+    console.log("Episode Deleted");
+
+}
+
+console.log("Admin Part 5 Ready");
