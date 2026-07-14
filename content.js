@@ -283,3 +283,65 @@ function deleteEpisode(episodeId) {
     console.log("Episode Deleted");
 
 }
+
+/* ======================================
+   BabyJohnHub OTT
+   Content Management
+   Part 5/6
+====================================== */
+
+// Trending Movies
+
+function getTrendingMovies(limit = 10) {
+
+    return getMovies()
+
+        .sort((a, b) => (b.views || 0) - (a.views || 0))
+
+        .slice(0, limit);
+
+}
+
+// Top Rated Movies
+
+function getTopRatedMovies(limit = 10) {
+
+    return getMovies()
+
+        .sort((a, b) => (b.rating || 0) - (a.rating || 0))
+
+        .slice(0, limit);
+
+}
+
+// New Releases
+
+function getNewReleases(limit = 10) {
+
+    return getMovies()
+
+        .sort((a, b) =>
+
+            Number(b.releaseYear || 0) -
+
+            Number(a.releaseYear || 0)
+
+        )
+
+        .slice(0, limit);
+
+}
+
+// Recommended Movies
+
+function getRecommendedMovies(limit = 10) {
+
+    return getMovies()
+
+        .filter(movie => movie.featured === true)
+
+        .slice(0, limit);
+
+}
+
+console.log("Content Part 5 Ready");
