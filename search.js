@@ -422,3 +422,128 @@ function loadRecentSearches(){
 }
 
 console.log("Search Large Part 2 Ready");
+
+/* ==========================================================
+   BabyJohnHub OTT
+   Search System
+   search.js
+   Large Part 3 / 3
+========================================================== */
+
+/* ======================================
+   Recent Search Click
+====================================== */
+
+document.addEventListener("click", function (e) {
+
+    if (e.target.classList.contains("recent-item")) {
+
+        searchInput.value = e.target.textContent.trim();
+
+        filterMovies();
+
+    }
+
+});
+
+/* ======================================
+   Voice Search
+====================================== */
+
+function startVoiceSearch() {
+
+    if (!("webkitSpeechRecognition" in window)) {
+
+        alert("Voice Search is not supported.");
+
+        return;
+
+    }
+
+    const recognition = new webkitSpeechRecognition();
+
+    recognition.lang = "en-IN";
+
+    recognition.start();
+
+    recognition.onresult = function (event) {
+
+        const text = event.results[0][0].transcript;
+
+        searchInput.value = text;
+
+        filterMovies();
+
+    };
+
+}
+
+/* ======================================
+   Auto Load
+====================================== */
+
+window.addEventListener("load", () => {
+
+    filterMovies();
+
+    loadRecentSearches();
+
+});
+
+/* ======================================
+   Performance
+====================================== */
+
+let searchTimer;
+
+searchInput.addEventListener("input", () => {
+
+    clearTimeout(searchTimer);
+
+    searchTimer = setTimeout(() => {
+
+        filterMovies();
+
+    }, 250);
+
+});
+
+/* ======================================
+   Refresh Recent Searches
+====================================== */
+
+searchBtn.addEventListener("click", () => {
+
+    saveSearch(searchInput.value.trim());
+
+    loadRecentSearches();
+
+});
+
+/* ======================================
+   Public API
+====================================== */
+
+window.BJHSearch = {
+
+    search: filterMovies,
+
+    clear: clearSearch,
+
+    history: getSearchHistory,
+
+    voice: startVoiceSearch
+
+};
+
+/* ======================================
+   Initialize
+====================================== */
+
+console.log("=================================");
+console.log(" BabyJohnHub Search Ready");
+console.log(" Live Search Enabled");
+console.log(" Filters Enabled");
+console.log(" Recent Searches Enabled");
+console.log(" Voice Search Ready");
+console.log("=================================");
