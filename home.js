@@ -145,3 +145,65 @@ function initHomePage() {
 }
 
 console.log("Home Part 2 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Home Page
+   Part 3/6
+====================================== */
+
+// Trending Movies
+
+function loadTrendingMovies(limit = 10) {
+
+    return getTrendingMovies(limit);
+
+}
+
+// Top Rated Movies
+
+function loadTopRatedMovies(limit = 10) {
+
+    return getTopRatedMovies(limit);
+
+}
+
+// New Releases
+
+function loadNewReleaseMovies(limit = 10) {
+
+    return getNewReleases(limit);
+
+}
+
+// Continue Watching
+
+function loadContinueWatching() {
+
+    return JSON.parse(
+
+        localStorage.getItem("bjh_continue")
+
+    ) || [];
+
+}
+
+// Home Sections
+
+function getHomeSections() {
+
+    return {
+
+        trending: loadTrendingMovies(),
+
+        topRated: loadTopRatedMovies(),
+
+        newReleases: loadNewReleaseMovies(),
+
+        continueWatching: loadContinueWatching()
+
+    };
+
+}
+
+console.log("Home Part 3 Ready");
