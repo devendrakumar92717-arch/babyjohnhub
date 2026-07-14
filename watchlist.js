@@ -267,3 +267,218 @@ function renderWatchlist(){
 }
 
 console.log("Watchlist Large Part 1 Ready");
+
+/* ==========================================================
+   BabyJohnHub OTT
+   Watchlist System
+   watchlist.js
+   Large Part 2 / 3
+========================================================== */
+
+/* ======================================
+   Continue Watching
+====================================== */
+
+function getContinueWatching(){
+
+    return JSON.parse(
+
+        localStorage.getItem(
+
+            CONTINUE_KEY
+
+        )
+
+    ) || [];
+
+}
+
+function saveContinueWatching(list){
+
+    localStorage.setItem(
+
+        CONTINUE_KEY,
+
+        JSON.stringify(list)
+
+    );
+
+}
+
+function updateContinueWatching(movie,progress){
+
+    let list = getContinueWatching();
+
+    list = list.filter(
+
+        item=>item.id!==movie.id
+
+    );
+
+    list.unshift({
+
+        ...movie,
+
+        progress:progress
+
+    });
+
+    saveContinueWatching(list);
+
+}
+
+/* ======================================
+   Button Events
+====================================== */
+
+document.addEventListener("click",function(e){
+
+    /* Remove Movie */
+
+    if(e.target.classList.contains("remove-watch")){
+
+        const id = Number(
+
+            e.target.dataset.id
+
+        );
+
+        removeFromWatchlist(id);
+
+    }
+
+    /* Favorite */
+
+    if(e.target.classList.contains("favorite-btn")){
+
+        const id = Number(
+
+            e.target.dataset.id
+
+        );
+
+        const movie = getWatchlist().find(
+
+            item=>item.id===id
+
+        );
+
+        if(movie){
+
+            toggleFavorite(movie);
+
+        }
+
+    }
+
+});
+
+/* ======================================
+   Render Continue Watching
+====================================== */
+
+function renderContinueWatching(){
+
+    const data = getContinueWatching();
+
+    console.log(
+
+        "Continue Watching",
+
+        data
+
+    );
+
+}
+
+/* ======================================
+   Watch History
+====================================== */
+
+function addWatchHistory(movie){
+
+    let history = JSON.parse(
+
+        localStorage.getItem(
+
+            "BJH_HISTORY"
+
+        )
+
+    ) || [];
+
+    history = history.filter(
+
+        item=>item.id!==movie.id
+
+    );
+
+    history.unshift({
+
+        ...movie,
+
+        watchedAt:new Date().toISOString()
+
+    });
+
+    if(history.length>20){
+
+        history.length=20;
+
+    }
+
+    localStorage.setItem(
+
+        "BJH_HISTORY",
+
+        JSON.stringify(history)
+
+    );
+
+}
+
+/* ======================================
+   Get History
+====================================== */
+
+function getWatchHistory(){
+
+    return JSON.parse(
+
+        localStorage.getItem(
+
+            "BJH_HISTORY"
+
+        )
+
+    ) || [];
+
+}
+
+/* ======================================
+   Clear History
+====================================== */
+
+function clearWatchHistory(){
+
+    localStorage.removeItem(
+
+        "BJH_HISTORY"
+
+    );
+
+}
+
+/* ======================================
+   Refresh
+====================================== */
+
+function refreshWatchlist(){
+
+    renderWatchlist();
+
+    renderContinueWatching();
+
+}
+
+console.log("Watchlist Large Part 2 Ready");
