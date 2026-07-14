@@ -143,3 +143,95 @@ function removeAdmin(userId) {
 }
 
 console.log("Admin Part 2 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Admin Panel
+   Part 3/6
+====================================== */
+
+// Block User
+
+function blockUser(userId) {
+
+    let users = getAllUsers();
+
+    users = users.map(user => {
+
+        if (user.id === userId) {
+
+            user.blocked = true;
+
+        }
+
+        return user;
+
+    });
+
+    saveAllUsers(users);
+
+    console.log("User Blocked");
+
+}
+
+// Unblock User
+
+function unblockUser(userId) {
+
+    let users = getAllUsers();
+
+    users = users.map(user => {
+
+        if (user.id === userId) {
+
+            user.blocked = false;
+
+        }
+
+        return user;
+
+    });
+
+    saveAllUsers(users);
+
+    console.log("User Unblocked");
+
+}
+
+// Search User
+
+function searchUsers(keyword) {
+
+    const users = getAllUsers();
+
+    return users.filter(user =>
+
+        (user.username || "").toLowerCase().includes(keyword.toLowerCase()) ||
+
+        (user.email || "").toLowerCase().includes(keyword.toLowerCase())
+
+    );
+
+}
+
+// User Statistics
+
+function getUserStats() {
+
+    const users = getAllUsers();
+
+    return {
+
+        totalUsers: users.length,
+
+        admins: users.filter(u => u.role === "Admin").length,
+
+        blockedUsers: users.filter(u => u.blocked).length,
+
+        premiumUsers: users.filter(u => u.premium).length
+
+    };
+
+}
+
+console.log("Admin Part 3 Ready");
