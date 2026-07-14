@@ -482,3 +482,186 @@ function refreshWatchlist(){
 }
 
 console.log("Watchlist Large Part 2 Ready");
+
+/* ==========================================================
+   BabyJohnHub OTT
+   Watchlist System
+   watchlist.js
+   Large Part 3 / 3
+========================================================== */
+
+/* ======================================
+   Render Favorites
+====================================== */
+
+function renderFavorites(){
+
+    const favorites = getFavorites();
+
+    console.log("Favorites Loaded", favorites.length);
+
+    return favorites;
+
+}
+
+/* ======================================
+   Statistics
+====================================== */
+
+function getWatchlistStats(){
+
+    return {
+
+        totalWatchlist : getWatchlist().length,
+
+        totalFavorites : getFavorites().length,
+
+        totalContinue : getContinueWatching().length,
+
+        totalHistory : getWatchHistory().length
+
+    };
+
+}
+
+/* ======================================
+   Clear Watchlist
+====================================== */
+
+function clearWatchlist(){
+
+    localStorage.removeItem(WATCHLIST_KEY);
+
+    renderWatchlist();
+
+}
+
+/* ======================================
+   Clear Favorites
+====================================== */
+
+function clearFavorites(){
+
+    localStorage.removeItem(FAVORITES_KEY);
+
+    renderWatchlist();
+
+}
+
+/* ======================================
+   Export Watchlist
+====================================== */
+
+function exportWatchlist(){
+
+    const data = {
+
+        watchlist : getWatchlist(),
+
+        favorites : getFavorites(),
+
+        history : getWatchHistory(),
+
+        continueWatching : getContinueWatching()
+
+    };
+
+    return JSON.stringify(data,null,2);
+
+}
+
+/* ======================================
+   Import Watchlist
+====================================== */
+
+function importWatchlist(data){
+
+    try{
+
+        const json = JSON.parse(data);
+
+        if(json.watchlist){
+
+            saveWatchlist(json.watchlist);
+
+        }
+
+        if(json.favorites){
+
+            saveFavorites(json.favorites);
+
+        }
+
+        if(json.continueWatching){
+
+            saveContinueWatching(
+
+                json.continueWatching
+
+            );
+
+        }
+
+        renderWatchlist();
+
+        renderContinueWatching();
+
+        console.log("Import Successful");
+
+    }catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+/* ======================================
+   Auto Load
+====================================== */
+
+window.addEventListener("load",()=>{
+
+    renderWatchlist();
+
+    renderContinueWatching();
+
+});
+
+/* ======================================
+   Global API
+====================================== */
+
+window.BJHWatchlist={
+
+    add:addToWatchlist,
+
+    remove:removeFromWatchlist,
+
+    favorite:toggleFavorite,
+
+    clear:clearWatchlist,
+
+    clearFavorites:clearFavorites,
+
+    export:exportWatchlist,
+
+    import:importWatchlist,
+
+    stats:getWatchlistStats,
+
+    history:getWatchHistory
+
+};
+
+/* ======================================
+   Performance
+====================================== */
+
+console.log("==================================");
+console.log(" BabyJohnHub Watchlist Ready");
+console.log(" Watchlist Enabled");
+console.log(" Favorites Enabled");
+console.log(" Continue Watching Enabled");
+console.log(" Watch History Enabled");
+console.log("==================================");
