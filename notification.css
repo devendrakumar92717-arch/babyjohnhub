@@ -467,3 +467,182 @@ height:180px;
 }
 
 }
+
+/* ==========================================================
+   BabyJohnHub OTT
+   Notification System
+   notification.css
+   Large Part 3 / 3
+========================================================== */
+
+/* ======================================
+   Trending Badge
+====================================== */
+
+.notification-trending{
+
+    position:absolute;
+
+    top:15px;
+    right:15px;
+
+    background:#ff3b30;
+
+    color:#fff;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+/* ======================================
+   New Badge
+====================================== */
+
+.notification-new{
+
+    background:#22c55e;
+
+    color:#fff;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+/* ======================================
+   Notification Divider
+====================================== */
+
+.notification-divider{
+
+    width:100%;
+
+    height:1px;
+
+    background:#2a2a2a;
+
+    margin:20px 0;
+
+}
+
+/* ======================================
+   Fade Animation
+====================================== */
+
+.notification-fade{
+
+    animation:notificationFade .45s ease;
+
+}
+
+@keyframes notificationFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ======================================
+   Custom Scrollbar
+====================================== */
+
+.notification-container::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.notification-container::-webkit-scrollbar-thumb{
+
+    background:#FFD700;
+
+    border-radius:20px;
+
+}
+
+.notification-container::-webkit-scrollbar-track{
+
+    background:#1b1b1b;
+
+}
+
+/* ======================================
+   Utility Classes
+====================================== */
+
+.notification-hidden{
+
+    display:none !important;
+
+}
+
+.notification-text-center{
+
+    text-align:center;
+
+}
+
+.notification-mt-20{
+
+    margin-top:20px;
+
+}
+
+.notification-mb-20{
+
+    margin-bottom:20px;
+
+}
+
+.notification-w-100{
+
+    width:100%;
+
+}
+
+/* ======================================
+   Performance Optimization
+====================================== */
+
+.notification-card,
+.notification-btn,
+.notification-icon,
+.notification-image{
+
+    will-change:transform,opacity;
+
+}
+
+/* ======================================
+   End
+====================================== */
+
+.notification-ready{
+
+    border:2px solid #FFD700;
+
+}
