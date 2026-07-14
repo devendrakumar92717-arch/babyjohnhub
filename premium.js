@@ -191,3 +191,61 @@ window.addEventListener("load", function() {
     console.log("User Type:", getUserType());
 
 });
+
+/* ======================================
+   BabyJohnHub OTT
+   Premium System
+   Part 4/6
+====================================== */
+
+// Selected Payment Method
+
+let selectedPaymentMethod = null;
+
+// Select Payment Method
+
+function selectPaymentMethod(method) {
+
+    selectedPaymentMethod = method;
+
+    console.log("Payment Method:", method);
+
+}
+
+// Get Selected Payment Method
+
+function getSelectedPaymentMethod() {
+
+    return selectedPaymentMethod;
+
+}
+
+// Start Payment (Demo)
+
+function startPremiumPayment() {
+
+    if (!selectedPlan) {
+
+        alert("Please select a Premium Plan.");
+
+        return;
+
+    }
+
+    if (!selectedPaymentMethod) {
+
+        alert("Please select a Payment Method.");
+
+        return;
+
+    }
+
+    console.log("Starting Payment...");
+
+    console.log("Plan:", selectedPlan.name);
+
+    console.log("Payment:", selectedPaymentMethod);
+
+    alert("Redirecting to Payment...");
+
+}
