@@ -165,3 +165,105 @@ color:#bbb;
 display:flex;
 justify-content:space-between;
 }
+
+/* ======================================
+   BabyJohnHub OTT
+   Home Page
+   Part 3/6
+====================================== */
+
+/* Continue Watching */
+
+.continue-section{
+margin:40px 0;
+}
+
+.continue-card{
+display:flex;
+align-items:center;
+background:#1f1f1f;
+border-radius:16px;
+overflow:hidden;
+margin-bottom:20px;
+transition:.3s;
+cursor:pointer;
+}
+
+.continue-card:hover{
+transform:scale(1.02);
+}
+
+.continue-poster{
+width:220px;
+height:130px;
+object-fit:cover;
+}
+
+.continue-info{
+flex:1;
+padding:20px;
+color:#fff;
+}
+
+.continue-title{
+font-size:22px;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.progress-bar{
+width:100%;
+height:8px;
+background:#333;
+border-radius:20px;
+overflow:hidden;
+margin-top:12px;
+}
+
+.progress-fill{
+height:100%;
+width:45%;
+background:#FFD700;
+}
+
+/* Premium Badge */
+
+.premium-tag{
+display:inline-block;
+padding:5px 12px;
+background:#FFD700;
+color:#000;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+margin-left:8px;
+}
+
+/* Category Chips */
+
+.category-list{
+display:flex;
+gap:12px;
+overflow-x:auto;
+margin-top:20px;
+padding-bottom:10px;
+}
+
+.category-list::-webkit-scrollbar{
+display:none;
+}
+
+.category-chip{
+padding:10px 18px;
+background:#252525;
+color:#fff;
+border-radius:25px;
+cursor:pointer;
+white-space:nowrap;
+transition:.3s;
+}
+
+.category-chip:hover{
+background:#FFD700;
+color:#000;
+}
