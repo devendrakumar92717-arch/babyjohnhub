@@ -235,3 +235,80 @@ function getUserStats() {
 }
 
 console.log("Admin Part 3 Ready");
+
+/* ======================================
+   BabyJohnHub OTT
+   Admin Panel
+   Part 4/6
+====================================== */
+
+// Get Movies
+
+function getAllMovies() {
+
+    return JSON.parse(
+        localStorage.getItem("bjh_movies")
+    ) || [];
+
+}
+
+// Save Movies
+
+function saveAllMovies(movies) {
+
+    localStorage.setItem(
+        "bjh_movies",
+        JSON.stringify(movies)
+    );
+
+}
+
+// Add Movie
+
+function addMovie(movie) {
+
+    const movies = getAllMovies();
+
+    movies.push(movie);
+
+    saveAllMovies(movies);
+
+    console.log("Movie Added");
+
+}
+
+// Edit Movie
+
+function editMovie(movieId, updatedMovie) {
+
+    let movies = getAllMovies();
+
+    movies = movies.map(movie =>
+
+        movie.id === movieId
+            ? { ...movie, ...updatedMovie }
+            : movie
+
+    );
+
+    saveAllMovies(movies);
+
+    console.log("Movie Updated");
+
+}
+
+// Delete Movie
+
+function deleteMovie(movieId) {
+
+    const movies = getAllMovies().filter(
+        movie => movie.id !== movieId
+    );
+
+    saveAllMovies(movies);
+
+    console.log("Movie Deleted");
+
+}
+
+console.log("Admin Part 4 Ready");
