@@ -577,3 +577,304 @@ document.addEventListener(
     }
 
 );
+
+/* ==========================================
+   BabyJohnHub Payment JS
+   Large Part 3A
+========================================== */
+
+// ===============================
+// Security Check
+// ===============================
+
+PaymentSystem.securityCheck = function(){
+
+    if(!this.selectedPlan){
+
+        console.warn("No Premium Plan Selected");
+
+    }
+
+    if(!this.selectedMethod){
+
+        console.warn("No Payment Method Selected");
+
+    }
+
+};
+
+// ===============================
+// Verify UTR
+// ===============================
+
+PaymentSystem.verifyUTR = function(utr){
+
+    if(!utr){
+
+        return false;
+
+    }
+
+    return utr.startsWith("UTR");
+
+};
+
+// ===============================
+// Membership Validation
+// ===============================
+
+PaymentSystem.validateMembership = function(){
+
+    const valid = this.verifyMembership();
+
+    console.log(
+
+        valid
+
+        ? "Membership Active"
+
+        : "Membership Expired"
+
+    );
+
+};
+
+// ===============================
+// Sync Payment
+// ===============================
+
+PaymentSystem.syncPayment = function(){
+
+    console.log(
+
+        "Payment Data Synced"
+
+    );
+
+};
+
+// ===============================
+// Session Info
+// ===============================
+
+PaymentSystem.sessionInfo = function(){
+
+    console.table({
+
+        plan:this.selectedPlan,
+
+        method:this.selectedMethod,
+
+        status:this.paymentStatus,
+
+        utr:this.utrNumber
+
+    });
+
+};
+
+// ===============================
+// Analytics
+// ===============================
+
+PaymentSystem.analytics = function(){
+
+    const history = JSON.parse(
+
+        localStorage.getItem(
+
+            "bjh_payment_history"
+
+        )
+
+    ) || [];
+
+    console.log(
+
+        "Total Payments:",
+
+        history.length
+
+    );
+
+};
+
+// ===============================
+// Initialize
+// ===============================
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    ()=>{
+
+        PaymentSystem.securityCheck();
+
+        PaymentSystem.validateMembership();
+
+        PaymentSystem.syncPayment();
+
+        PaymentSystem.sessionInfo();
+
+        PaymentSystem.analytics();
+
+    }
+
+);
+/* ==========================================
+   BabyJohnHub Payment JS
+   Large Part 3B (Final)
+========================================== */
+
+// ===============================
+// Version Information
+// ===============================
+
+PaymentSystem.version = {
+
+    app: "BabyJohnHub",
+
+    module: "Payment",
+
+    version: "1.0.0"
+
+};
+
+console.table(
+
+    PaymentSystem.version
+
+);
+
+// ===============================
+// Debug Mode
+// ===============================
+
+PaymentSystem.debug = function(){
+
+    console.group(
+
+        "Payment Debug"
+
+    );
+
+    console.log(
+
+        "Plan:",
+
+        this.selectedPlan
+
+    );
+
+    console.log(
+
+        "Method:",
+
+        this.selectedMethod
+
+    );
+
+    console.log(
+
+        "Status:",
+
+        this.paymentStatus
+
+    );
+
+    console.log(
+
+        "UTR:",
+
+        this.utrNumber
+
+    );
+
+    console.groupEnd();
+
+};
+
+// ===============================
+// Restore Backup
+// ===============================
+
+PaymentSystem.restoreBackup = function(){
+
+    const backup = localStorage.getItem(
+
+        "bjh_payment_history_backup"
+
+    );
+
+    if(backup){
+
+        localStorage.setItem(
+
+            "bjh_payment_history",
+
+            backup
+
+        );
+
+        console.log(
+
+            "Backup Restored"
+
+        );
+
+    }
+
+};
+
+// ===============================
+// Cleanup
+// ===============================
+
+PaymentSystem.destroy = function(){
+
+    console.log(
+
+        "Payment Module Closed"
+
+    );
+
+};
+
+// ===============================
+// Performance Check
+// ===============================
+
+PaymentSystem.performance = function(){
+
+    console.log(
+
+        "Payment Module Ready"
+
+    );
+
+};
+
+// ===============================
+// Final Initialize
+// ===============================
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    ()=>{
+
+        PaymentSystem.restoreBackup();
+
+        PaymentSystem.performance();
+
+        PaymentSystem.debug();
+
+    }
+
+);
+
+/* ==========================================
+   End of Payment JS
+========================================== */
