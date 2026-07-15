@@ -292,3 +292,134 @@ document.addEventListener(
     }
 
 );
+
+/* ==========================================
+   BabyJohnHub Dashboard JS
+   Large Part 2A
+========================================== */
+
+// ===============================
+// Recent Activity
+// ===============================
+
+DashboardManager.loadRecentActivity = function(){
+
+    const history = JSON.parse(
+
+        localStorage.getItem("history")
+
+    ) || [];
+
+    console.log(
+
+        "Recent Activity:",
+
+        history
+
+    );
+
+};
+
+// ===============================
+// Membership Status
+// ===============================
+
+DashboardManager.loadMembership = function(){
+
+    const membership = localStorage.getItem(
+
+        "membership"
+
+    ) || "Free";
+
+    console.log(
+
+        "Membership:",
+
+        membership
+
+    );
+
+};
+
+// ===============================
+// Watch Time
+// ===============================
+
+DashboardManager.calculateWatchTime = function(){
+
+    const watchTime = Number(
+
+        localStorage.getItem("watch_time")
+
+    ) || 0;
+
+    console.log(
+
+        "Total Watch Time:",
+
+        watchTime,
+
+        "Minutes"
+
+    );
+
+};
+
+// ===============================
+// Last Login
+// ===============================
+
+DashboardManager.loadLastLogin = function(){
+
+    const lastLogin = localStorage.getItem(
+
+        "last_login"
+
+    ) || "Today";
+
+    console.log(
+
+        "Last Login:",
+
+        lastLogin
+
+    );
+
+};
+
+// ===============================
+// Dashboard Summary
+// ===============================
+
+DashboardManager.updateSummary = function(){
+
+    this.loadStatistics();
+
+    this.loadNotificationStatus();
+
+    this.loadMembership();
+
+    this.calculateWatchTime();
+
+    this.loadLastLogin();
+
+    this.loadRecentActivity();
+
+};
+
+// ===============================
+// Auto Refresh Dashboard
+// ===============================
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    ()=>{
+
+        DashboardManager.updateSummary();
+
+    }
+
+);
