@@ -408,3 +408,258 @@
     }
 
 }
+
+/* ==========================================
+   BabyJohnHub Payment CSS
+   Large Part 3A
+========================================== */
+
+/* Payment Success */
+
+.payment-success-box{
+
+    margin-top:30px;
+
+    padding:25px;
+
+    background:rgba(25,135,84,.15);
+
+    border:1px solid rgba(25,135,84,.45);
+
+    border-radius:18px;
+
+    text-align:center;
+
+}
+
+.payment-success-box h3{
+
+    color:#33d17a;
+
+    font-size:28px;
+
+    margin-bottom:15px;
+
+}
+
+.payment-success-box p{
+
+    color:#ffffff;
+
+    margin:8px 0;
+
+}
+
+/* Payment Failed */
+
+.payment-failed-box{
+
+    margin-top:30px;
+
+    padding:25px;
+
+    background:rgba(220,53,69,.15);
+
+    border:1px solid rgba(220,53,69,.45);
+
+    border-radius:18px;
+
+    text-align:center;
+
+}
+
+.payment-failed-box h3{
+
+    color:#ff4d4d;
+
+    font-size:28px;
+
+    margin-bottom:15px;
+
+}
+
+.payment-failed-box p{
+
+    color:#ffffff;
+
+}
+
+/* Loading */
+
+.payment-loader{
+
+    width:55px;
+
+    height:55px;
+
+    margin:30px auto;
+
+    border:5px solid rgba(255,255,255,.15);
+
+    border-top:5px solid #0d6efd;
+
+    border-radius:50%;
+
+    animation:paymentSpin 1s linear infinite;
+
+}
+
+@keyframes paymentSpin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* UTR Card */
+
+.payment-utr-card{
+
+    margin-top:20px;
+
+    padding:15px;
+
+    background:#0f274b;
+
+    border-radius:12px;
+
+    border:1px solid rgba(13,110,253,.35);
+
+    color:#4da3ff;
+
+    font-weight:700;
+
+    text-align:center;
+
+}
+/* ==========================================
+   BabyJohnHub Payment CSS
+   Large Part 3B (Final)
+========================================== */
+
+/* Tablet */
+
+@media (max-width:992px){
+
+    .payment-section{
+
+        padding:45px 20px;
+
+    }
+
+    .payment-section h2{
+
+        font-size:30px;
+
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+    .membership-plans{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .plan-card{
+
+        padding:20px;
+
+    }
+
+    .buy-plan{
+
+        width:100%;
+
+    }
+
+    #paymentResult{
+
+        padding:20px;
+
+    }
+
+}
+
+/* Small Mobile */
+
+@media (max-width:480px){
+
+    .payment-section{
+
+        padding:30px 15px;
+
+        border-radius:15px;
+
+    }
+
+    .payment-section h2{
+
+        font-size:24px;
+
+    }
+
+    .plan-card h3{
+
+        font-size:20px;
+
+    }
+
+    .plan-card p{
+
+        font-size:26px;
+
+    }
+
+    .payment-methods button{
+
+        width:100%;
+
+        font-size:14px;
+
+    }
+
+}
+
+/* Focus */
+
+.buy-plan:focus,
+
+.payment-methods button:focus{
+
+    outline:2px solid #4da3ff;
+
+    outline-offset:3px;
+
+}
+
+/* Smooth Transition */
+
+.payment-section,
+
+.plan-card,
+
+.buy-plan,
+
+.payment-methods button,
+
+#paymentResult{
+
+    transition:all .3s ease;
+
+}
+
+/* End of Payment CSS */
