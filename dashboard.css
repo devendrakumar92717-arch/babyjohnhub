@@ -128,3 +128,135 @@
     gap:22px;
 
 }
+/* ==========================================
+   BabyJohnHub Dashboard CSS
+   Large Part 1B
+========================================== */
+
+/* ===========================
+   Dashboard Cards
+=========================== */
+
+.dashboard-card{
+
+    background:var(--dashboard-card);
+
+    border-radius:18px;
+
+    padding:25px;
+
+    text-align:center;
+
+    box-shadow:var(--dashboard-shadow);
+
+    transition:.35s ease;
+
+    border:1px solid rgba(255,255,255,.06);
+
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-8px);
+
+    background:var(--dashboard-card-hover);
+
+    border-color:var(--dashboard-primary);
+
+}
+
+.dashboard-card span{
+
+    display:block;
+
+    color:var(--dashboard-text-light);
+
+    font-size:15px;
+
+    margin-bottom:12px;
+
+}
+
+.dashboard-card h3{
+
+    color:#fff;
+
+    font-size:34px;
+
+    font-weight:700;
+
+    margin:0;
+
+}
+
+.dashboard-card i{
+
+    font-size:34px;
+
+    color:var(--dashboard-primary);
+
+    margin-bottom:15px;
+
+}
+
+/* ===========================
+   Status Colors
+=========================== */
+
+.status-premium{
+
+    color:#00d26a;
+
+    font-weight:700;
+
+}
+
+.status-free{
+
+    color:#ffb300;
+
+    font-weight:700;
+
+}
+
+.status-on{
+
+    color:#00d26a;
+
+}
+
+.status-off{
+
+    color:#ff4d4f;
+
+}
+
+/* ===========================
+   Card Animation
+=========================== */
+
+.dashboard-card{
+
+    animation:dashboardFade .6s ease;
+
+}
+
+@keyframes dashboardFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
