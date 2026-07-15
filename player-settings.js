@@ -608,3 +608,170 @@ document.addEventListener(
     }
 
 );
+
+/* ==========================================
+   BabyJohnHub Player Settings JS
+   Large Part 3A
+========================================== */
+
+// ===============================
+// Player Analytics
+// ===============================
+
+PlayerSettings.analytics = function(){
+
+    if(!this.video) return;
+
+    const analytics = {
+
+        duration:this.video.duration,
+
+        currentTime:this.video.currentTime,
+
+        playbackRate:this.video.playbackRate,
+
+        volume:this.video.volume
+
+    };
+
+    console.table(analytics);
+
+};
+
+// ===============================
+// Watch History
+// ===============================
+
+PlayerSettings.saveHistory = function(){
+
+    if(!this.video) return;
+
+    const history = JSON.parse(
+
+        localStorage.getItem("player_history")
+
+    ) || [];
+
+    history.push({
+
+        time:new Date().toISOString(),
+
+        position:this.video.currentTime
+
+    });
+
+    localStorage.setItem(
+
+        "player_history",
+
+        JSON.stringify(history)
+
+    );
+
+};
+
+// ===============================
+// Favorite Quality
+// ===============================
+
+PlayerSettings.favoriteQuality = function(){
+
+    const quality = document.getElementById(
+
+        "qualitySelect"
+
+    )?.value || "auto";
+
+    localStorage.setItem(
+
+        "favorite_quality",
+
+        quality
+
+    );
+
+    console.log(
+
+        "Favorite Quality:",
+
+        quality
+
+    );
+
+};
+
+// ===============================
+// Backup Settings
+// ===============================
+
+PlayerSettings.backup = function(){
+
+    const settings = localStorage.getItem(
+
+        "bjh_player_settings"
+
+    );
+
+    localStorage.setItem(
+
+        "bjh_player_settings_backup",
+
+        settings
+
+    );
+
+};
+
+// ===============================
+// Auto Sync
+// ===============================
+
+PlayerSettings.sync = function(){
+
+    console.log(
+
+        "Player Synced"
+
+    );
+
+};
+
+// ===============================
+// Session Info
+// ===============================
+
+PlayerSettings.sessionInfo = function(){
+
+    console.table({
+
+        sessionStart:new Date().toLocaleString(),
+
+        browser:navigator.userAgent
+
+    });
+
+};
+
+// ===============================
+// Initialize
+// ===============================
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    ()=>{
+
+        PlayerSettings.analytics();
+
+        PlayerSettings.favoriteQuality();
+
+        PlayerSettings.backup();
+
+        PlayerSettings.sync();
+
+        PlayerSettings.sessionInfo();
+
+    }
+
+);
