@@ -395,3 +395,189 @@
     font-size:14px;
 
 }
+/* ==========================================
+   BabyJohnHub Dashboard CSS
+   Large Part 2B
+========================================== */
+
+/* ===========================
+   Recent Activity
+=========================== */
+
+.recent-activity{
+
+    margin-top:35px;
+
+    background:var(--dashboard-card);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:var(--dashboard-shadow);
+
+}
+
+.recent-activity h3{
+
+    color:#ffffff;
+
+    font-size:22px;
+
+    margin-bottom:20px;
+
+}
+
+.activity-list{
+
+    list-style:none;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+.activity-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.activity-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.activity-name{
+
+    color:#ffffff;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+.activity-time{
+
+    color:var(--dashboard-text-light);
+
+    font-size:13px;
+
+}
+
+/* ===========================
+   Statistics Cards
+=========================== */
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:18px;
+
+    margin-top:35px;
+
+}
+
+.stats-card{
+
+    background:linear-gradient(
+        145deg,
+        #121f35,
+        #1a2d4f
+    );
+
+    border-radius:18px;
+
+    padding:22px;
+
+    text-align:center;
+
+    transition:.35s ease;
+
+    border:1px solid rgba(255,255,255,.06);
+
+}
+
+.stats-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:var(--dashboard-primary);
+
+    box-shadow:0 10px 22px rgba(13,110,253,.28);
+
+}
+
+.stats-card h4{
+
+    color:#ffffff;
+
+    font-size:30px;
+
+    margin-bottom:10px;
+
+}
+
+.stats-card p{
+
+    color:var(--dashboard-text-light);
+
+    font-size:14px;
+
+}
+
+/* ===========================
+   Membership Box
+=========================== */
+
+.membership-box{
+
+    margin-top:35px;
+
+    background:linear-gradient(
+        135deg,
+        #0d6efd,
+        #2d8cff
+    );
+
+    border-radius:20px;
+
+    padding:28px;
+
+    color:#ffffff;
+
+    text-align:center;
+
+    box-shadow:0 12px 30px rgba(13,110,253,.35);
+
+}
+
+.membership-box h3{
+
+    font-size:24px;
+
+    margin-bottom:12px;
+
+}
+
+.membership-box p{
+
+    font-size:15px;
+
+    opacity:.95;
+
+}
