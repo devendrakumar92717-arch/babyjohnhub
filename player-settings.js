@@ -100,3 +100,209 @@ document.addEventListener(
     }
 
 );
+/* ==========================================
+   BabyJohnHub Player Settings JS
+   Large Part 1B
+========================================== */
+
+// ===============================
+// Save Settings
+// ===============================
+
+PlayerSettings.saveSettings = function(){
+
+    const settings = {
+
+        quality : document.getElementById(
+
+            "qualitySelect"
+
+        )?.value || "auto",
+
+        speed : document.getElementById(
+
+            "speedSelect"
+
+        )?.value || "1",
+
+        subtitle : document.getElementById(
+
+            "subtitleToggle"
+
+        )?.checked || false,
+
+        autoNext : document.getElementById(
+
+            "autoNextToggle"
+
+        )?.checked ?? true
+
+    };
+
+    localStorage.setItem(
+
+        "bjh_player_settings",
+
+        JSON.stringify(settings)
+
+    );
+
+    console.log(
+
+        "Player Settings Saved",
+
+        settings
+
+    );
+
+};
+
+// ===============================
+// Quality Change
+// ===============================
+
+PlayerSettings.changeQuality = function(){
+
+    const quality = document.getElementById(
+
+        "qualitySelect"
+
+    );
+
+    if(!quality) return;
+
+    console.log(
+
+        "Quality Changed:",
+
+        quality.value
+
+    );
+
+};
+
+// ===============================
+// Subtitle Toggle
+// ===============================
+
+PlayerSettings.toggleSubtitle = function(){
+
+    const subtitle = document.getElementById(
+
+        "subtitleToggle"
+
+    );
+
+    console.log(
+
+        subtitle.checked
+
+        ? "Subtitle ON"
+
+        : "Subtitle OFF"
+
+    );
+
+};
+
+// ===============================
+// Auto Next
+// ===============================
+
+PlayerSettings.toggleAutoNext = function(){
+
+    const autoNext = document.getElementById(
+
+        "autoNextToggle"
+
+    );
+
+    console.log(
+
+        autoNext.checked
+
+        ? "Auto Next Enabled"
+
+        : "Auto Next Disabled"
+
+    );
+
+};
+
+// ===============================
+// Events
+// ===============================
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    ()=>{
+
+        document.getElementById(
+
+            "savePlayerSettings"
+
+        )?.addEventListener(
+
+            "click",
+
+            ()=>{
+
+                PlayerSettings.saveSettings();
+
+            }
+
+        );
+
+        document.getElementById(
+
+            "qualitySelect"
+
+        )?.addEventListener(
+
+            "change",
+
+            ()=>{
+
+                PlayerSettings.changeQuality();
+
+            }
+
+        );
+
+        document.getElementById(
+
+            "subtitleToggle"
+
+        )?.addEventListener(
+
+            "change",
+
+            ()=>{
+
+                PlayerSettings.toggleSubtitle();
+
+            }
+
+        );
+
+        document.getElementById(
+
+            "autoNextToggle"
+
+        )?.addEventListener(
+
+            "change",
+
+            ()=>{
+
+                PlayerSettings.toggleAutoNext();
+
+            }
+
+        );
+
+    }
+
+);
