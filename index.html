@@ -279,7 +279,76 @@ Play Episode
 <source src="videos/episode1.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
+<!-- ===========================
+     Player Settings Panel
+=========================== -->
 
+<div id="playerSettingsPanel" class="player-settings-panel">
+
+    <h3>⚙️ Player Settings</h3>
+
+    <!-- Video Quality -->
+    <div class="setting-item">
+        <label for="qualitySelect">Video Quality</label>
+
+        <select id="qualitySelect">
+            <option value="auto">Auto</option>
+            <option value="360">360p</option>
+            <option value="480">480p</option>
+            <option value="720">720p HD</option>
+            <option value="1080">1080p Full HD</option>
+            <option value="1440">1440p 2K</option>
+            <option value="2160">2160p 4K UHD</option>
+        </select>
+    </div>
+
+    <!-- Playback Speed -->
+    <div class="setting-item">
+        <label for="speedSelect">Playback Speed</label>
+
+        <select id="speedSelect">
+            <option value="0.5">0.5x</option>
+            <option value="0.75">0.75x</option>
+            <option value="1" selected>Normal (1x)</option>
+            <option value="1.25">1.25x</option>
+            <option value="1.5">1.5x</option>
+            <option value="2">2x</option>
+        </select>
+    </div>
+
+    <!-- Subtitle -->
+    <div class="setting-item">
+        <label>
+            <input type="checkbox" id="subtitleToggle">
+            Enable Subtitles
+        </label>
+    </div>
+
+    <!-- Auto Next -->
+    <div class="setting-item">
+        <label>
+            <input type="checkbox" id="autoNextToggle" checked>
+            Auto Next Episode
+        </label>
+    </div>
+
+    <!-- Picture in Picture -->
+    <div class="setting-item">
+        <button id="pipButton">
+            📺 Picture in Picture
+        </button>
+    </div>
+
+    <!-- Save -->
+    <div class="setting-item">
+        <button id="savePlayerSettings">
+            💾 Save Settings
+        </button>
+    </div>
+
+</div>
+
+<!-- End Player Settings Panel -->
 <div class="player-buttons">
 
 <button id="prevEpisode">
