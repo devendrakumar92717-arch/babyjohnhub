@@ -148,3 +148,147 @@ document.addEventListener(
     }
 
 );
+/* ==========================================
+   BabyJohnHub Dashboard JS
+   Large Part 1B
+========================================== */
+
+// ===============================
+// Settings Button
+// ===============================
+
+DashboardManager.openSettings = function(){
+
+    console.log("Opening Settings");
+
+    if(typeof showSection === "function"){
+
+        showSection("settingsSection");
+
+    }
+
+};
+
+// ===============================
+// Premium Button
+// ===============================
+
+DashboardManager.openPremium = function(){
+
+    console.log("Opening Premium");
+
+    if(typeof showSection === "function"){
+
+        showSection("premiumSection");
+
+    }
+
+};
+
+// ===============================
+// Notification Status
+// ===============================
+
+DashboardManager.loadNotificationStatus = function(){
+
+    const status = document.getElementById(
+        "notificationStatus"
+    );
+
+    if(!status) return;
+
+    const settings = JSON.parse(
+        localStorage.getItem("bjh_settings")
+    ) || {};
+
+    status.textContent =
+        settings.notification === false
+        ? "Off"
+        : "On";
+
+};
+
+// ===============================
+// Continue Watching Progress
+// ===============================
+
+DashboardManager.loadContinueWatching = function(){
+
+    const history = JSON.parse(
+        localStorage.getItem("history")
+    ) || [];
+
+    console.log(
+        "Continue Watching:",
+        history.length
+    );
+
+};
+
+// ===============================
+// Refresh Dashboard
+// ===============================
+
+DashboardManager.refresh = function(){
+
+    this.loadProfile();
+
+    this.loadStatistics();
+
+    this.loadPremiumStatus();
+
+    this.loadNotificationStatus();
+
+    this.loadContinueWatching();
+
+};
+
+// ===============================
+// Button Events
+// ===============================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    ()=>{
+
+        const settingsBtn =
+        document.getElementById(
+            "dashboardSettingsBtn"
+        );
+
+        if(settingsBtn){
+
+            settingsBtn.addEventListener(
+                "click",
+                ()=>{
+
+                    DashboardManager.openSettings();
+
+                }
+            );
+
+        }
+
+        const premiumBtn =
+        document.getElementById(
+            "dashboardPremiumBtn"
+        );
+
+        if(premiumBtn){
+
+            premiumBtn.addEventListener(
+                "click",
+                ()=>{
+
+                    DashboardManager.openPremium();
+
+                }
+            );
+
+        }
+
+        DashboardManager.loadNotificationStatus();
+
+    }
+
+);
