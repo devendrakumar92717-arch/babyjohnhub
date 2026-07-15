@@ -766,3 +766,227 @@
     opacity:1;
 
 }
+/* ==========================================
+   BabyJohnHub Dashboard CSS
+   Large Part 3B (Final)
+========================================== */
+
+/* ===========================
+   Empty State
+=========================== */
+
+.dashboard-empty{
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    background:var(--dashboard-card);
+
+    border-radius:20px;
+
+    margin-top:35px;
+
+}
+
+.dashboard-empty i{
+
+    font-size:60px;
+
+    color:var(--dashboard-primary);
+
+    margin-bottom:20px;
+
+}
+
+.dashboard-empty h3{
+
+    color:#ffffff;
+
+    margin-bottom:12px;
+
+    font-size:24px;
+
+}
+
+.dashboard-empty p{
+
+    color:var(--dashboard-text-light);
+
+    font-size:15px;
+
+}
+
+/* ===========================
+   Loading Animation
+=========================== */
+
+.dashboard-loading{
+
+    width:50px;
+
+    height:50px;
+
+    border:5px solid rgba(255,255,255,.15);
+
+    border-top:5px solid var(--dashboard-primary);
+
+    border-radius:50%;
+
+    animation:dashboardSpin 1s linear infinite;
+
+    margin:40px auto;
+
+}
+
+@keyframes dashboardSpin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+.dashboard-footer{
+
+    margin-top:50px;
+
+    padding:25px;
+
+    text-align:center;
+
+    color:var(--dashboard-text-light);
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.dashboard-footer strong{
+
+    color:var(--dashboard-primary);
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:992px){
+
+.dashboard-title{
+
+    font-size:30px;
+
+}
+
+.dashboard-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.continue-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.dashboard-profile-card{
+
+    padding:25px;
+
+}
+
+.dashboard-profile-card img{
+
+    width:90px;
+
+    height:90px;
+
+}
+
+.dashboard-title{
+
+    font-size:28px;
+
+}
+
+.dashboard-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.continue-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.dashboard-buttons{
+
+    flex-direction:column;
+
+}
+
+.dashboard-buttons button{
+
+    width:100%;
+
+}
+
+.stats-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.membership-box{
+
+    padding:22px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.dashboard-section{
+
+    padding:30px 15px;
+
+}
+
+.dashboard-title{
+
+    font-size:24px;
+
+}
+
+.continue-card img{
+
+    height:240px;
+
+}
+
+}
+
+/* ==========================================
+   End of Dashboard CSS
+========================================== */
