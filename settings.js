@@ -540,3 +540,123 @@ document.addEventListener(
     }
 
 );
+
+/* ==========================================
+   BabyJohnHub Settings JS
+   Large Part 3A
+========================================== */
+
+// ===============================
+// Settings Backup
+// ===============================
+
+SettingsManager.createBackup = function(){
+
+    const settings = JSON.parse(
+        localStorage.getItem("bjh_settings")
+    ) || {};
+
+    localStorage.setItem(
+        "bjh_settings_backup",
+        JSON.stringify(settings)
+    );
+
+    console.log("Settings Backup Created");
+
+};
+
+// ===============================
+// Restore Backup
+// ===============================
+
+SettingsManager.restoreBackup = function(){
+
+    const backup = localStorage.getItem(
+        "bjh_settings_backup"
+    );
+
+    if(!backup){
+
+        alert("No Backup Found");
+
+        return;
+
+    }
+
+    localStorage.setItem(
+        "bjh_settings",
+        backup
+    );
+
+    location.reload();
+
+};
+
+// ===============================
+// Dark Mode Helper
+// ===============================
+
+SettingsManager.toggleDarkMode = function(enable){
+
+    if(enable){
+
+        document.body.classList.add("dark-theme");
+        document.body.classList.remove("light-theme");
+
+    }else{
+
+        document.body.classList.add("light-theme");
+        document.body.classList.remove("dark-theme");
+
+    }
+
+};
+
+// ===============================
+// Apply All Preferences
+// ===============================
+
+SettingsManager.applyAll = function(){
+
+    this.applyTheme();
+
+    this.applyLanguage();
+
+    this.applySpeed();
+
+    this.applyQuality();
+
+};
+
+// ===============================
+// Version Information
+// ===============================
+
+SettingsManager.version = {
+
+    appName : "BabyJohnHub",
+
+    version : "1.0.0",
+
+    developer : "BabyJohnHub Team"
+
+};
+
+console.log(
+    SettingsManager.version
+);
+
+// ===============================
+// Start Settings
+// ===============================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    ()=>{
+
+        SettingsManager.createBackup();
+
+        SettingsManager.applyAll();
+
+    }
+);
