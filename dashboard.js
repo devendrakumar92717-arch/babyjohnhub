@@ -750,3 +750,165 @@ document.addEventListener(
     }
 
 );
+/* ==========================================
+   BabyJohnHub Dashboard JS
+   Large Part 3B (Final)
+========================================== */
+
+// ===============================
+// Backup Dashboard
+// ===============================
+
+DashboardManager.createBackup = function(){
+
+    const dashboardData = {
+
+        profile: JSON.parse(localStorage.getItem("bjh_user")) || {},
+
+        watchlist: JSON.parse(localStorage.getItem("watchlist")) || [],
+
+        downloads: JSON.parse(localStorage.getItem("downloads")) || [],
+
+        history: JSON.parse(localStorage.getItem("history")) || []
+
+    };
+
+    localStorage.setItem(
+
+        "bjh_dashboard_backup",
+
+        JSON.stringify(dashboardData)
+
+    );
+
+    console.log("Dashboard Backup Created");
+
+};
+
+// ===============================
+// Restore Dashboard
+// ===============================
+
+DashboardManager.restoreBackup = function(){
+
+    const backup = localStorage.getItem(
+
+        "bjh_dashboard_backup"
+
+    );
+
+    if(!backup){
+
+        console.log("No Backup Found");
+
+        return;
+
+    }
+
+    console.log("Dashboard Restored");
+
+};
+
+// ===============================
+// Auto Sync
+// ===============================
+
+DashboardManager.autoSync = function(){
+
+    console.log("Dashboard Synced");
+
+};
+
+// ===============================
+// Version Information
+// ===============================
+
+DashboardManager.version = {
+
+    app : "BabyJohnHub",
+
+    module : "Dashboard",
+
+    version : "1.0.0"
+
+};
+
+console.table(
+
+    DashboardManager.version
+
+);
+
+// ===============================
+// Debug Mode
+// ===============================
+
+DashboardManager.debug = function(){
+
+    console.group("Dashboard Debug");
+
+    console.log(
+
+        "User :",
+
+        JSON.parse(
+
+            localStorage.getItem("bjh_user")
+
+        )
+
+    );
+
+    console.log(
+
+        "Dashboard :",
+
+        JSON.parse(
+
+            localStorage.getItem("bjh_dashboard")
+
+        )
+
+    );
+
+    console.groupEnd();
+
+};
+
+// ===============================
+// Destroy
+// ===============================
+
+DashboardManager.destroy = function(){
+
+    console.log(
+
+        "Dashboard Closed"
+
+    );
+
+};
+
+// ===============================
+// Final Initialize
+// ===============================
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    ()=>{
+
+        DashboardManager.createBackup();
+
+        DashboardManager.autoSync();
+
+        DashboardManager.debug();
+
+    }
+
+);
+
+/* ==========================================
+   End of dashboard.js
+========================================== */
