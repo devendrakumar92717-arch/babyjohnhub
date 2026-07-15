@@ -266,3 +266,314 @@ document.addEventListener(
     }
 
 );
+
+/* ==========================================
+   BabyJohnHub Payment JS
+   Large Part 2A
+========================================== */
+
+// ===============================
+// Restore Last Payment
+// ===============================
+
+PaymentSystem.restoreLastPayment = function(){
+
+    const payment = JSON.parse(
+
+        localStorage.getItem("bjh_last_payment")
+
+    );
+
+    if(!payment) return;
+
+    this.selectedPlan = payment.plan;
+
+    this.selectedMethod = payment.method;
+
+    this.paymentStatus = payment.status;
+
+    this.utrNumber = payment.utr;
+
+    console.log("Last Payment Restored");
+
+};
+
+// ===============================
+// Premium Activate
+// ===============================
+
+PaymentSystem.activatePremium = function(){
+
+    localStorage.setItem(
+
+        "bjh_premium",
+
+        "true"
+
+    );
+
+    console.log(
+
+        "Premium Activated"
+
+    );
+
+};
+
+// ===============================
+// Membership Expiry
+// ===============================
+
+PaymentSystem.saveExpiry = function(days){
+
+    const expiry = new Date();
+
+    expiry.setDate(
+
+        expiry.getDate() + days
+
+    );
+
+    localStorage.setItem(
+
+        "bjh_membership_expiry",
+
+        expiry.toISOString()
+
+    );
+
+};
+
+// ===============================
+// Verify Membership
+// ===============================
+
+PaymentSystem.verifyMembership = function(){
+
+    const expiry = localStorage.getItem(
+
+        "bjh_membership_expiry"
+
+    );
+
+    if(!expiry) return false;
+
+    return new Date(expiry) > new Date();
+
+};
+
+// ===============================
+// Payment History
+// ===============================
+
+PaymentSystem.saveHistory = function(){
+
+    const history = JSON.parse(
+
+        localStorage.getItem(
+
+            "bjh_payment_history"
+
+        )
+
+    ) || [];
+
+    history.push({
+
+        plan:this.selectedPlan,
+
+        method:this.selectedMethod,
+
+        utr:this.utrNumber,
+
+        status:this.paymentStatus,
+
+        date:new Date().toLocaleString()
+
+    });
+
+    localStorage.setItem(
+
+        "bjh_payment_history",
+
+        JSON.stringify(history)
+
+    );
+
+};
+
+// ===============================
+// Initialize
+// ===============================
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    ()=>{
+
+        PaymentSystem.restoreLastPayment();
+
+    }
+
+);
+/* ==========================================
+   BabyJohnHub Payment JS
+   Large Part 2B
+========================================== */
+
+// ===============================
+// Show Payment History
+// ===============================
+
+PaymentSystem.showHistory = function(){
+
+    const history = JSON.parse(
+
+        localStorage.getItem(
+
+            "bjh_payment_history"
+
+        )
+
+    ) || [];
+
+    console.table(history);
+
+};
+
+// ===============================
+// Search UTR
+// ===============================
+
+PaymentSystem.searchUTR = function(utr){
+
+    const history = JSON.parse(
+
+        localStorage.getItem(
+
+            "bjh_payment_history"
+
+        )
+
+    ) || [];
+
+    return history.find(
+
+        item => item.utr === utr
+
+    );
+
+};
+
+// ===============================
+// Cancel Membership
+// ===============================
+
+PaymentSystem.cancelMembership = function(){
+
+    localStorage.removeItem(
+
+        "bjh_premium"
+
+    );
+
+    localStorage.removeItem(
+
+        "bjh_membership_expiry"
+
+    );
+
+    console.log(
+
+        "Membership Cancelled"
+
+    );
+
+};
+
+// ===============================
+// Renew Membership
+// ===============================
+
+PaymentSystem.renewMembership = function(days){
+
+    this.activatePremium();
+
+    this.saveExpiry(days);
+
+    console.log(
+
+        "Membership Renewed"
+
+    );
+
+};
+
+// ===============================
+// Backup Payment Data
+// ===============================
+
+PaymentSystem.backupPayments = function(){
+
+    const history = localStorage.getItem(
+
+        "bjh_payment_history"
+
+    );
+
+    localStorage.setItem(
+
+        "bjh_payment_history_backup",
+
+        history
+
+    );
+
+};
+
+// ===============================
+// Payment Statistics
+// ===============================
+
+PaymentSystem.statistics = function(){
+
+    const history = JSON.parse(
+
+        localStorage.getItem(
+
+            "bjh_payment_history"
+
+        )
+
+    ) || [];
+
+    console.table({
+
+        totalPayments: history.length,
+
+        premiumActive:
+
+            this.verifyMembership()
+
+    });
+
+};
+
+// ===============================
+// Initialize
+// ===============================
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    ()=>{
+
+        PaymentSystem.showHistory();
+
+        PaymentSystem.statistics();
+
+    }
+
+);
