@@ -554,3 +554,137 @@
         0 18px 40px rgba(0,0,0,.35);
 
 }
+/* ==========================================
+   BabyJohnHub Player Settings CSS
+   Large Part 3B (Final)
+========================================== */
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width:992px){
+
+    .player-settings-panel{
+
+        padding:20px;
+
+    }
+
+    .player-settings-panel h3{
+
+        font-size:22px;
+
+    }
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:768px){
+
+    .setting-item{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:12px;
+
+    }
+
+    .setting-item label{
+
+        width:100%;
+
+    }
+
+    .setting-item select,
+
+    .setting-item button{
+
+        width:100%;
+
+    }
+
+}
+
+/* ===========================
+   Small Mobile
+=========================== */
+
+@media (max-width:480px){
+
+    .player-settings-panel{
+
+        padding:15px;
+
+        border-radius:14px;
+
+    }
+
+    .player-settings-panel h3{
+
+        font-size:20px;
+
+    }
+
+    .setting-item{
+
+        padding:12px;
+
+    }
+
+    .setting-item label{
+
+        font-size:14px;
+
+    }
+
+    .setting-item select,
+
+    .setting-item button{
+
+        font-size:14px;
+
+    }
+
+}
+
+/* ===========================
+   Accessibility
+=========================== */
+
+.setting-item button:focus,
+
+.setting-item select:focus,
+
+.setting-item input:focus{
+
+    outline:2px solid #4da3ff;
+
+    outline-offset:2px;
+
+}
+
+/* ===========================
+   Smooth Transitions
+=========================== */
+
+.player-settings-panel,
+
+.setting-item,
+
+.setting-item button,
+
+.setting-item select{
+
+    transition:all .3s ease;
+
+}
+
+/* ==========================================
+   End of Player Settings CSS
+========================================== */
