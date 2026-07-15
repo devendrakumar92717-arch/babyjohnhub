@@ -199,3 +199,212 @@
     border-color:#4da3ff;
 
 }
+
+/* ==========================================
+   BabyJohnHub Payment CSS
+   Large Part 2A
+========================================== */
+
+/* Payment Result */
+
+#paymentResult{
+
+    margin-top:40px;
+
+    padding:25px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(13,110,253,.30);
+
+    border-radius:18px;
+
+    backdrop-filter:blur(12px);
+
+}
+
+/* Heading */
+
+#paymentResult h3{
+
+    color:#ffffff;
+
+    text-align:center;
+
+    font-size:24px;
+
+    margin-bottom:20px;
+
+}
+
+/* Status Text */
+
+#paymentResult p{
+
+    color:#d8e7ff;
+
+    font-size:16px;
+
+    margin:10px 0;
+
+}
+
+/* Success */
+
+.payment-success{
+
+    color:#2ecc71 !important;
+
+    font-weight:700;
+
+}
+
+/* Failed */
+
+.payment-failed{
+
+    color:#ff4d4d !important;
+
+    font-weight:700;
+
+}
+
+/* UTR Number */
+
+.payment-utr{
+
+    color:#4da3ff;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+/* Animation */
+
+#paymentResult{
+
+    animation:paymentFade .5s ease;
+
+}
+
+@keyframes paymentFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+   }
+/* ==========================================
+   BabyJohnHub Payment CSS
+   Large Part 2B
+========================================== */
+
+/* Payment Methods Grid */
+
+.payment-methods{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-top:35px;
+
+}
+
+/* Payment Method Button */
+
+.payment-methods button{
+
+    min-width:150px;
+
+    padding:14px 18px;
+
+    background:#0b1f3d;
+
+    color:#ffffff;
+
+    border:2px solid transparent;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:all .3s ease;
+
+}
+
+/* Hover Effect */
+
+.payment-methods button:hover{
+
+    background:#0d6efd;
+
+    border-color:#4da3ff;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 20px rgba(13,110,253,.30);
+
+}
+
+/* Selected Method */
+
+.payment-methods button.active{
+
+    background:#198754;
+
+    border-color:#33d17a;
+
+    color:#ffffff;
+
+}
+
+/* Payment Icons */
+
+.payment-methods button i{
+
+    margin-right:8px;
+
+}
+
+/* Responsive */
+
+@media (max-width:768px){
+
+    .payment-methods{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .payment-methods button{
+
+        width:100%;
+
+    }
+
+}
