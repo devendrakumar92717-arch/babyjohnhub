@@ -581,3 +581,188 @@
     opacity:.95;
 
 }
+
+/* ==========================================
+   BabyJohnHub Dashboard CSS
+   Large Part 3A
+========================================== */
+
+/* ===========================
+   Continue Watching
+=========================== */
+
+.continue-section{
+
+    margin-top:40px;
+
+}
+
+.continue-title{
+
+    color:#ffffff;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+.continue-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+.continue-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    background:#101826;
+
+    transition:.35s ease;
+
+    box-shadow:0 12px 28px rgba(0,0,0,.30);
+
+}
+
+.continue-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 18px 35px rgba(13,110,253,.28);
+
+}
+
+.continue-card img{
+
+    width:100%;
+
+    height:300px;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+.continue-overlay{
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    padding:18px;
+
+    background:linear-gradient(
+
+        transparent,
+
+        rgba(0,0,0,.92)
+
+    );
+
+}
+
+.continue-overlay h4{
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    margin-bottom:10px;
+
+}
+
+.continue-progress{
+
+    width:100%;
+
+    height:8px;
+
+    background:rgba(255,255,255,.18);
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+}
+
+.continue-progress span{
+
+    display:block;
+
+    height:100%;
+
+    width:60%;
+
+    background:linear-gradient(
+        90deg,
+        #0d6efd,
+        #43a1ff
+    );
+
+}
+
+.continue-percent{
+
+    margin-top:10px;
+
+    color:#d6e5ff;
+
+    font-size:13px;
+
+}
+
+.play-overlay{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:62px;
+
+    height:62px;
+
+    border-radius:50%;
+
+    background:rgba(13,110,253,.88);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#ffffff;
+
+    font-size:26px;
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.continue-card:hover .play-overlay{
+
+    opacity:1;
+
+}
