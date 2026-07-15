@@ -437,3 +437,120 @@
 }
 
 }
+
+/* ==========================================
+   BabyJohnHub Player Settings CSS
+   Large Part 3A
+========================================== */
+
+/* ===========================
+   Glass Effect
+=========================== */
+
+.player-settings-panel{
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+.player-settings-footer{
+
+    margin-top:30px;
+
+    padding-top:20px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    text-align:center;
+
+}
+
+.player-settings-footer p{
+
+    color:#9eb2d1;
+
+    font-size:13px;
+
+}
+
+/* ===========================
+   Success Message
+=========================== */
+
+.player-settings-success{
+
+    display:none;
+
+    margin-top:18px;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    background:rgba(25,135,84,.18);
+
+    border:1px solid rgba(25,135,84,.45);
+
+    color:#4dff9c;
+
+    text-align:center;
+
+    font-weight:600;
+
+}
+
+/* ===========================
+   Loading Spinner
+=========================== */
+
+.player-settings-loader{
+
+    width:42px;
+
+    height:42px;
+
+    margin:25px auto;
+
+    border:4px solid rgba(255,255,255,.12);
+
+    border-top:4px solid #0d6efd;
+
+    border-radius:50%;
+
+    animation:playerSpin .8s linear infinite;
+
+}
+
+@keyframes playerSpin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* ===========================
+   Blue Glow
+=========================== */
+
+.player-settings-panel:hover{
+
+    box-shadow:
+        0 0 18px rgba(13,110,253,.25),
+        0 18px 40px rgba(0,0,0,.35);
+
+}
