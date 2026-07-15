@@ -775,3 +775,112 @@ document.addEventListener(
     }
 
 );
+/* ==========================================
+   BabyJohnHub Player Settings JS
+   Large Part 3B (Final)
+========================================== */
+
+// ===============================
+// Version Information
+// ===============================
+
+PlayerSettings.version = {
+
+    app: "BabyJohnHub",
+
+    module: "Player Settings",
+
+    version: "1.0.0"
+
+};
+
+console.table(PlayerSettings.version);
+
+// ===============================
+// Debug Mode
+// ===============================
+
+PlayerSettings.debug = function(){
+
+    console.group("Player Settings Debug");
+
+    console.log(
+        "Video:",
+        this.video
+    );
+
+    console.log(
+        "Saved Settings:",
+        JSON.parse(
+            localStorage.getItem(
+                "bjh_player_settings"
+            )
+        )
+    );
+
+    console.groupEnd();
+
+};
+
+// ===============================
+// Performance Check
+// ===============================
+
+PlayerSettings.performanceCheck = function(){
+
+    console.log(
+        "Player Ready:",
+        !!this.video
+    );
+
+};
+
+// ===============================
+// Auto Sync
+// ===============================
+
+PlayerSettings.autoSync = function(){
+
+    this.saveSettings();
+
+    console.log(
+        "Player Settings Synced"
+    );
+
+};
+
+// ===============================
+// Cleanup
+// ===============================
+
+PlayerSettings.destroy = function(){
+
+    console.log(
+        "Player Settings Closed"
+    );
+
+};
+
+// ===============================
+// Final Initialize
+// ===============================
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    ()=>{
+
+        PlayerSettings.performanceCheck();
+
+        PlayerSettings.autoSync();
+
+        PlayerSettings.debug();
+
+    }
+
+);
+
+/* ==========================================
+   End of Player Settings JS
+========================================== */
