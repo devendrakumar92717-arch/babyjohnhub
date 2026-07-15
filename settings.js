@@ -426,3 +426,117 @@ SettingsManager.applyTheme();
 );
 
 }
+/* ==========================================
+   BabyJohnHub Settings JS
+   Large Part 2B
+========================================== */
+
+// ===============================
+// Notification Permission
+// ===============================
+
+SettingsManager.requestNotificationPermission = async function(){
+
+    if(!("Notification" in window)){
+
+        console.log("Notification not supported");
+
+        return;
+
+    }
+
+    if(Notification.permission === "default"){
+
+        await Notification.requestPermission();
+
+    }
+
+};
+
+// ===============================
+// Send Notification
+// ===============================
+
+SettingsManager.sendNotification = function(title, body){
+
+    if(Notification.permission !== "granted") return;
+
+    new Notification(title,{
+
+        body:body,
+
+        icon:"images/logo.png"
+
+    });
+
+};
+
+// ===============================
+// Auto Save Settings
+// ===============================
+
+SettingsManager.autoSave = function(){
+
+    const ids = [
+
+        "languageSelect",
+        "themeSelect",
+        "qualitySelect",
+        "speedSelect",
+        "subtitleToggle",
+        "notificationToggle",
+        "autoplayToggle"
+
+    ];
+
+    ids.forEach(id=>{
+
+        const element = document.getElementById(id);
+
+        if(!element) return;
+
+        element.addEventListener("change",()=>{
+
+            SettingsManager.saveSettings();
+
+        });
+
+    });
+
+};
+
+// ===============================
+// Settings Statistics
+// ===============================
+
+SettingsManager.printSettings = function(){
+
+    const settings = JSON.parse(
+
+        localStorage.getItem("bjh_settings")
+
+    ) || {};
+
+    console.table(settings);
+
+};
+
+// ===============================
+// Initialize Extra Features
+// ===============================
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    ()=>{
+
+        SettingsManager.autoSave();
+
+        SettingsManager.requestNotificationPermission();
+
+        SettingsManager.printSettings();
+
+    }
+
+);
