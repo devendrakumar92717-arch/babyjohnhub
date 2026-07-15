@@ -423,3 +423,165 @@ document.addEventListener(
     }
 
 );
+/* ==========================================
+   BabyJohnHub Dashboard JS
+   Large Part 2B
+========================================== */
+
+// ===============================
+// Edit Profile
+// ===============================
+
+DashboardManager.editProfile = function(){
+
+    console.log("Edit Profile");
+
+};
+
+// ===============================
+// Refresh Watchlist
+// ===============================
+
+DashboardManager.refreshWatchlist = function(){
+
+    const watchlist = JSON.parse(
+
+        localStorage.getItem("watchlist")
+
+    ) || [];
+
+    const count = document.getElementById(
+
+        "watchlistCount"
+
+    );
+
+    if(count){
+
+        count.textContent = watchlist.length;
+
+    }
+
+};
+
+// ===============================
+// Refresh Downloads
+// ===============================
+
+DashboardManager.refreshDownloads = function(){
+
+    const downloads = JSON.parse(
+
+        localStorage.getItem("downloads")
+
+    ) || [];
+
+    const count = document.getElementById(
+
+        "downloadCount"
+
+    );
+
+    if(count){
+
+        count.textContent = downloads.length;
+
+    }
+
+};
+
+// ===============================
+// Refresh Continue Watching
+// ===============================
+
+DashboardManager.refreshContinueWatching = function(){
+
+    const history = JSON.parse(
+
+        localStorage.getItem("history")
+
+    ) || [];
+
+    const count = document.getElementById(
+
+        "continueWatchingCount"
+
+    );
+
+    if(count){
+
+        count.textContent = history.length;
+
+    }
+
+};
+
+// ===============================
+// Save Dashboard
+// ===============================
+
+DashboardManager.saveDashboard = function(){
+
+    const dashboard = {
+
+        updated:new Date().toISOString()
+
+    };
+
+    localStorage.setItem(
+
+        "bjh_dashboard",
+
+        JSON.stringify(dashboard)
+
+    );
+
+};
+
+// ===============================
+// Live Update
+// ===============================
+
+DashboardManager.liveUpdate = function(){
+
+    this.refreshWatchlist();
+
+    this.refreshDownloads();
+
+    this.refreshContinueWatching();
+
+    this.saveDashboard();
+
+};
+
+// ===============================
+// Auto Refresh Every 30 Seconds
+// ===============================
+
+setInterval(
+
+    ()=>{
+
+        DashboardManager.liveUpdate();
+
+    },
+
+    30000
+
+);
+
+// ===============================
+// Initialize
+// ===============================
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    ()=>{
+
+        DashboardManager.liveUpdate();
+
+    }
+
+);
