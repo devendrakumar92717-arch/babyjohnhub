@@ -142,3 +142,134 @@ document.addEventListener(
     }
 
 );
+/* ==========================================
+   BabyJohnHub Settings JS
+   Large Part 1B
+========================================== */
+
+// ===============================
+// Theme Manager
+// ===============================
+
+SettingsManager.applyTheme = function(){
+
+    const settings = JSON.parse(
+        localStorage.getItem("bjh_settings")
+    ) || {};
+
+    const theme = settings.theme || "dark";
+
+    document.body.classList.remove(
+        "dark-theme",
+        "light-theme"
+    );
+
+    if(theme === "light"){
+
+        document.body.classList.add("light-theme");
+
+    }else{
+
+        document.body.classList.add("dark-theme");
+
+    }
+
+};
+
+// ===============================
+// Language Manager
+// ===============================
+
+SettingsManager.applyLanguage = function(){
+
+    const settings = JSON.parse(
+        localStorage.getItem("bjh_settings")
+    ) || {};
+
+    console.log(
+        "Current Language :",
+        settings.language || "en"
+    );
+
+};
+
+// ===============================
+// Playback Speed
+// ===============================
+
+SettingsManager.applySpeed = function(){
+
+    const player = document.getElementById("videoPlayer");
+
+    if(!player) return;
+
+    const settings = JSON.parse(
+        localStorage.getItem("bjh_settings")
+    ) || {};
+
+    const speed = parseFloat(
+        settings.speed || "1"
+    );
+
+    player.playbackRate = speed;
+
+};
+
+// ===============================
+// Auto Play
+// ===============================
+
+SettingsManager.isAutoPlayEnabled = function(){
+
+    const settings = JSON.parse(
+        localStorage.getItem("bjh_settings")
+    ) || {};
+
+    return settings.autoplay ?? true;
+
+};
+
+// ===============================
+// Notification
+// ===============================
+
+SettingsManager.isNotificationEnabled = function(){
+
+    const settings = JSON.parse(
+        localStorage.getItem("bjh_settings")
+    ) || {};
+
+    return settings.notification ?? true;
+
+};
+
+// ===============================
+// Subtitle
+// ===============================
+
+SettingsManager.isSubtitleEnabled = function(){
+
+    const settings = JSON.parse(
+        localStorage.getItem("bjh_settings")
+    ) || {};
+
+    return settings.subtitle ?? false;
+
+};
+
+// ===============================
+// Run All
+// ===============================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    ()=>{
+
+        SettingsManager.applyTheme();
+
+        SettingsManager.applyLanguage();
+
+        SettingsManager.applySpeed();
+
+    }
+);
