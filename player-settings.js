@@ -306,3 +306,155 @@ document.addEventListener(
     }
 
 );
+
+/* ==========================================
+   BabyJohnHub Player Settings JS
+   Large Part 2A
+========================================== */
+
+// ===============================
+// Playback Speed
+// ===============================
+
+PlayerSettings.changeSpeed = function(){
+
+    if(!this.video) return;
+
+    const speed = document.getElementById(
+        "speedSelect"
+    );
+
+    if(speed){
+
+        this.video.playbackRate = Number(speed.value);
+
+        console.log(
+            "Speed:",
+            speed.value + "x"
+        );
+
+    }
+
+};
+
+// ===============================
+// Picture in Picture
+// ===============================
+
+PlayerSettings.pictureInPicture = async function(){
+
+    if(!this.video) return;
+
+    try{
+
+        if(document.pictureInPictureElement){
+
+            await document.exitPictureInPicture();
+
+        }else{
+
+            await this.video.requestPictureInPicture();
+
+        }
+
+    }catch(error){
+
+        console.log(
+            "PiP Error:",
+            error
+        );
+
+    }
+
+};
+
+// ===============================
+// Volume
+// ===============================
+
+PlayerSettings.setVolume = function(value){
+
+    if(!this.video) return;
+
+    this.video.volume = value;
+
+    console.log(
+        "Volume:",
+        value
+    );
+
+};
+
+// ===============================
+// Brightness
+// ===============================
+
+PlayerSettings.setBrightness = function(value){
+
+    if(!this.video) return;
+
+    this.video.style.filter =
+        `brightness(${value})`;
+
+    console.log(
+        "Brightness:",
+        value
+    );
+
+};
+
+// ===============================
+// Reset Player
+// ===============================
+
+PlayerSettings.resetPlayer = function(){
+
+    if(!this.video) return;
+
+    this.video.playbackRate = 1;
+
+    this.video.volume = 1;
+
+    this.video.style.filter = "brightness(1)";
+
+    console.log(
+        "Player Reset"
+    );
+
+};
+
+// ===============================
+// Events
+// ===============================
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    ()=>{
+
+        document.getElementById(
+            "speedSelect"
+        )?.addEventListener(
+            "change",
+            ()=>{
+
+                PlayerSettings.changeSpeed();
+
+            }
+        );
+
+        document.getElementById(
+            "pipButton"
+        )?.addEventListener(
+            "click",
+            ()=>{
+
+                PlayerSettings.pictureInPicture();
+
+            }
+        );
+
+    }
+
+);
