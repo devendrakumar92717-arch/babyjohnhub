@@ -660,3 +660,137 @@ document.addEventListener(
 
     }
 );
+/* ==========================================
+   BabyJohnHub Settings JS
+   Large Part 3B (Final)
+========================================== */
+
+// ===============================
+// Check First Launch
+// ===============================
+
+SettingsManager.checkFirstLaunch = function(){
+
+    const launched = localStorage.getItem(
+        "bjh_first_launch"
+    );
+
+    if(!launched){
+
+        localStorage.setItem(
+            "bjh_first_launch",
+            "true"
+        );
+
+        console.log("Welcome to BabyJohnHub");
+
+    }
+
+};
+
+// ===============================
+// Sync Settings
+// ===============================
+
+SettingsManager.syncSettings = function(){
+
+    const settings = JSON.parse(
+
+        localStorage.getItem(
+            "bjh_settings"
+        )
+
+    ) || {};
+
+    console.log(
+        "Settings Synced",
+        settings
+    );
+
+};
+
+// ===============================
+// App Information
+// ===============================
+
+SettingsManager.getAppInfo = function(){
+
+    return{
+
+        name:"BabyJohnHub",
+
+        version:"1.0.0",
+
+        theme:"Premium Blue",
+
+        storage:"Local Storage"
+
+    };
+
+};
+
+// ===============================
+// Debug
+// ===============================
+
+SettingsManager.debug = function(){
+
+    console.group(
+        "BabyJohnHub Settings"
+    );
+
+    console.log(
+        this.getAppInfo()
+    );
+
+    console.log(
+
+        JSON.parse(
+
+            localStorage.getItem(
+                "bjh_settings"
+            )
+
+        )
+
+    );
+
+    console.groupEnd();
+
+};
+
+// ===============================
+// Destroy Manager
+// ===============================
+
+SettingsManager.destroy = function(){
+
+    console.log(
+        "Settings Manager Closed"
+    );
+
+};
+
+// ===============================
+// Initialize Final
+// ===============================
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    ()=>{
+
+        SettingsManager.checkFirstLaunch();
+
+        SettingsManager.syncSettings();
+
+        SettingsManager.debug();
+
+    }
+
+);
+
+// =====================================
+// End of settings.js
+// =====================================
