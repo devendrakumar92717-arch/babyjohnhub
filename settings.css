@@ -437,3 +437,162 @@
 }
 
 }
+
+/* ===========================================
+   BabyJohnHub Settings CSS
+   Large Part 2B
+=========================================== */
+
+/* ===== Storage Info Card ===== */
+
+.storage-card{
+    background:linear-gradient(135deg,#101826,#16233a);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:24px;
+    margin-top:24px;
+}
+
+.storage-title{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+}
+
+.storage-title i{
+    font-size:24px;
+    color:#0d6efd;
+}
+
+.storage-title h3{
+    color:#ffffff;
+    font-size:22px;
+}
+
+.storage-bar{
+    width:100%;
+    height:10px;
+    background:#202b3c;
+    border-radius:30px;
+    overflow:hidden;
+    margin:18px 0;
+}
+
+.storage-progress{
+    width:38%;
+    height:100%;
+    background:linear-gradient(90deg,#0d6efd,#4da3ff);
+    border-radius:30px;
+}
+
+.storage-details{
+    display:flex;
+    justify-content:space-between;
+    color:#b8c2d4;
+    font-size:14px;
+}
+
+/* ===== Cache Actions ===== */
+
+.cache-actions{
+    display:flex;
+    gap:15px;
+    margin-top:24px;
+    flex-wrap:wrap;
+}
+
+.cache-btn{
+    background:#0d6efd;
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    padding:12px 20px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.cache-btn:hover{
+    background:#0b5ed7;
+    transform:translateY(-2px);
+}
+
+.delete-btn{
+    background:#dc3545;
+}
+
+.delete-btn:hover{
+    background:#bb2d3b;
+}
+
+/* ===== About Card ===== */
+
+.about-card{
+    margin-top:30px;
+    padding:25px;
+    border-radius:18px;
+    background:#121c2d;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.about-card h3{
+    color:#ffffff;
+    margin-bottom:15px;
+    font-size:22px;
+}
+
+.about-card p{
+    color:#b8c2d4;
+    line-height:1.8;
+    font-size:15px;
+}
+
+.version-box{
+    margin-top:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 18px;
+    background:#0d1525;
+    border-radius:12px;
+}
+
+.version-box span{
+    color:#ffffff;
+    font-weight:600;
+}
+
+.version-badge{
+    background:#0d6efd;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+}
+
+/* ===== Mobile ===== */
+
+@media(max-width:768px){
+
+.storage-details{
+    flex-direction:column;
+    gap:8px;
+}
+
+.cache-actions{
+    flex-direction:column;
+}
+
+.cache-btn,
+.delete-btn{
+    width:100%;
+}
+
+.version-box{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+}
+
+}
