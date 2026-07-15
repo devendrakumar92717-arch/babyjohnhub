@@ -458,3 +458,153 @@ document.addEventListener(
     }
 
 );
+/* ==========================================
+   BabyJohnHub Player Settings JS
+   Large Part 2B
+========================================== */
+
+// ===============================
+// Mute / Unmute
+// ===============================
+
+PlayerSettings.toggleMute = function(){
+
+    if(!this.video) return;
+
+    this.video.muted = !this.video.muted;
+
+    console.log(
+
+        this.video.muted
+
+        ? "Muted"
+
+        : "Unmuted"
+
+    );
+
+};
+
+// ===============================
+// Full Screen
+// ===============================
+
+PlayerSettings.toggleFullscreen = async function(){
+
+    try{
+
+        if(!document.fullscreenElement){
+
+            await this.video.requestFullscreen();
+
+        }else{
+
+            await document.exitFullscreen();
+
+        }
+
+    }catch(error){
+
+        console.log(error);
+
+    }
+
+};
+
+// ===============================
+// Auto Replay
+// ===============================
+
+PlayerSettings.autoReplay = function(){
+
+    if(!this.video) return;
+
+    this.video.loop = true;
+
+    console.log("Auto Replay Enabled");
+
+};
+
+// ===============================
+// Auto Save
+// ===============================
+
+PlayerSettings.autoSave = function(){
+
+    this.saveSettings();
+
+};
+
+// ===============================
+// Player Status
+// ===============================
+
+PlayerSettings.playerStatus = function(){
+
+    if(!this.video) return;
+
+    console.table({
+
+        currentTime:this.video.currentTime,
+
+        duration:this.video.duration,
+
+        paused:this.video.paused,
+
+        muted:this.video.muted,
+
+        volume:this.video.volume
+
+    });
+
+};
+
+// ===============================
+// Restore
+// ===============================
+
+PlayerSettings.restore = function(){
+
+    this.loadSettings();
+
+    console.log(
+
+        "Player Settings Restored"
+
+    );
+
+};
+
+// ===============================
+// Auto Save Every Minute
+// ===============================
+
+setInterval(
+
+    ()=>{
+
+        PlayerSettings.autoSave();
+
+    },
+
+    60000
+
+);
+
+// ===============================
+// Initialize
+// ===============================
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    ()=>{
+
+        PlayerSettings.restore();
+
+        PlayerSettings.playerStatus();
+
+    }
+
+);
