@@ -1,1 +1,85 @@
+/* ==========================================
+   BabyJohnHub Payment CSS
+   Large Part 1A
+========================================== */
 
+/* Payment Section */
+
+.payment-section{
+
+    padding:60px 25px;
+
+    background:linear-gradient(
+        135deg,
+        #07172f,
+        #10284d
+    );
+
+    border-radius:20px;
+
+    margin:40px 0;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+}
+
+/* Heading */
+
+.payment-section h2{
+
+    text-align:center;
+
+    color:#ffffff;
+
+    font-size:34px;
+
+    margin-bottom:35px;
+
+    font-weight:700;
+
+}
+
+/* Membership Plans */
+
+.membership-plans{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
+
+    gap:25px;
+
+}
+
+/* Plan Card */
+
+.plan-card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(13,110,253,.30);
+
+    border-radius:18px;
+
+    padding:25px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    backdrop-filter:blur(12px);
+
+}
+
+/* Hover */
+
+.plan-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#0d6efd;
+
+    box-shadow:0 15px 30px rgba(13,110,253,.30);
+
+}
