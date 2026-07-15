@@ -206,3 +206,108 @@
     margin:18px 0;
 
 }
+
+/* ==========================================
+   BabyJohnHub Player Settings CSS
+   Large Part 2A
+========================================== */
+
+/* Select Box */
+
+.setting-item select{
+
+    min-width:180px;
+
+    height:45px;
+
+    background:#0f274b;
+
+    color:#ffffff;
+
+    border:1px solid rgba(13,110,253,.45);
+
+    border-radius:12px;
+
+    padding:0 15px;
+
+    transition:.3s ease;
+
+}
+
+/* Select Hover */
+
+.setting-item select:hover{
+
+    border-color:#0d6efd;
+
+}
+
+/* Select Focus */
+
+.setting-item select:focus{
+
+    outline:none;
+
+    border-color:#4da3ff;
+
+    box-shadow:0 0 15px rgba(13,110,253,.35);
+
+}
+
+/* Option */
+
+.setting-item option{
+
+    background:#0f274b;
+
+    color:#ffffff;
+
+}
+
+/* Checkbox Row */
+
+.setting-item label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+/* Switch Area */
+
+.setting-item.checkbox{
+
+    justify-content:space-between;
+
+}
+
+/* Animation */
+
+.player-settings-panel{
+
+    animation:playerSettingsFade .4s ease;
+
+}
+
+@keyframes playerSettingsFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
