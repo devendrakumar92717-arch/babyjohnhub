@@ -585,3 +585,168 @@ document.addEventListener(
     }
 
 );
+
+/* ==========================================
+   BabyJohnHub Dashboard JS
+   Large Part 3A
+========================================== */
+
+// ===============================
+// Dashboard Analytics
+// ===============================
+
+DashboardManager.loadAnalytics = function(){
+
+    const history = JSON.parse(
+
+        localStorage.getItem("history")
+
+    ) || [];
+
+    const watchlist = JSON.parse(
+
+        localStorage.getItem("watchlist")
+
+    ) || [];
+
+    const downloads = JSON.parse(
+
+        localStorage.getItem("downloads")
+
+    ) || [];
+
+    const analytics = {
+
+        watched : history.length,
+
+        watchlist : watchlist.length,
+
+        downloads : downloads.length
+
+    };
+
+    console.table(analytics);
+
+};
+
+// ===============================
+// Total Watch Time
+// ===============================
+
+DashboardManager.totalWatchTime = function(){
+
+    const watchTime = Number(
+
+        localStorage.getItem("watch_time")
+
+    ) || 0;
+
+    console.log(
+
+        "Watch Time :",
+
+        watchTime,
+
+        "Minutes"
+
+    );
+
+};
+
+// ===============================
+// Achievement System
+// ===============================
+
+DashboardManager.loadAchievements = function(){
+
+    const history = JSON.parse(
+
+        localStorage.getItem("history")
+
+    ) || [];
+
+    let badge = "Beginner";
+
+    if(history.length >= 20){
+
+        badge = "Movie Lover";
+
+    }
+
+    if(history.length >= 50){
+
+        badge = "Super Viewer";
+
+    }
+
+    if(history.length >= 100){
+
+        badge = "Legend";
+
+    }
+
+    console.log(
+
+        "Achievement :",
+
+        badge
+
+    );
+
+};
+
+// ===============================
+// Premium Information
+// ===============================
+
+DashboardManager.loadPremiumInfo = function(){
+
+    const premium = localStorage.getItem(
+
+        "premium"
+
+    ) === "true";
+
+    console.log(
+
+        premium
+
+        ? "Premium User"
+
+        : "Free User"
+
+    );
+
+};
+
+// ===============================
+// User Summary
+// ===============================
+
+DashboardManager.userSummary = function(){
+
+    this.loadAnalytics();
+
+    this.totalWatchTime();
+
+    this.loadAchievements();
+
+    this.loadPremiumInfo();
+
+};
+
+// ===============================
+// Initialize
+// ===============================
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    ()=>{
+
+        DashboardManager.userSummary();
+
+    }
+
+);
