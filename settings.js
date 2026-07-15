@@ -273,3 +273,156 @@ document.addEventListener(
 
     }
 );
+
+/* ==========================================
+   BabyJohnHub Settings JS
+   Large Part 2A
+========================================== */
+
+// ===============================
+// Quality Manager
+// ===============================
+
+SettingsManager.applyQuality = function(){
+
+    const player = document.getElementById("videoPlayer");
+
+    if(!player) return;
+
+    const settings = JSON.parse(
+        localStorage.getItem("bjh_settings")
+    ) || {};
+
+    const quality = settings.quality || "Auto";
+
+    console.log(
+        "Selected Quality:",
+        quality
+    );
+
+};
+
+// ===============================
+// Cache Manager
+// ===============================
+
+SettingsManager.clearCache = function(){
+
+    localStorage.removeItem("bjh_temp");
+
+    this.showMessage(
+        "🗑 Cache Cleared Successfully"
+    );
+
+};
+
+// ===============================
+// Reset Settings
+// ===============================
+
+SettingsManager.resetSettings = function(){
+
+    localStorage.removeItem(
+        "bjh_settings"
+    );
+
+    location.reload();
+
+};
+
+// ===============================
+// Export Settings
+// ===============================
+
+SettingsManager.exportSettings = function(){
+
+    const settings = JSON.stringify(
+
+        JSON.parse(
+            localStorage.getItem("bjh_settings")
+        ) || {},
+
+        null,
+
+        2
+
+    );
+
+    const blob = new Blob(
+
+        [settings],
+
+        {
+
+            type:"application/json"
+
+        }
+
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+
+    a.href = url;
+
+    a.download = "BabyJohnHub-Settings.json";
+
+    a.click();
+
+    URL.revokeObjectURL(url);
+
+};
+
+// ===============================
+// Import Settings
+// ===============================
+
+SettingsManager.importSettings = function(file){
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        localStorage.setItem(
+
+            "bjh_settings",
+
+            e.target.result
+
+        );
+
+        location.reload();
+
+    };
+
+    reader.readAsText(file);
+
+};
+
+// ===============================
+// Theme Change Event
+// ===============================
+
+const themeSelect =
+document.getElementById(
+    "themeSelect"
+);
+
+if(themeSelect){
+
+themeSelect.addEventListener(
+
+"change",
+
+()=>{
+
+SettingsManager.saveSettings();
+
+SettingsManager.applyTheme();
+
+}
+
+);
+
+}
