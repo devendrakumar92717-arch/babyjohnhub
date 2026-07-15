@@ -1,1 +1,119 @@
+/* ===========================================
+   BabyJohnHub Settings CSS
+   Large Part 1A
+   =========================================== */
 
+:root{
+    --primary:#0d6efd;
+    --primary-hover:#0b5ed7;
+    --bg:#070b12;
+    --card:#101826;
+    --card2:#151f31;
+    --text:#ffffff;
+    --text2:#b8c2d4;
+    --border:rgba(255,255,255,.08);
+    --shadow:0 12px 35px rgba(0,0,0,.45);
+    --radius:18px;
+    --transition:.35s ease;
+}
+
+.settings-section{
+    width:100%;
+    padding:40px 20px;
+    background:linear-gradient(180deg,#05070d,#0a1220);
+    color:var(--text);
+}
+
+.settings-container{
+    max-width:900px;
+    margin:auto;
+}
+
+.section-title{
+    font-size:34px;
+    font-weight:700;
+    margin-bottom:30px;
+    color:#fff;
+    text-align:center;
+}
+
+.setting-card{
+    background:rgba(18,28,45,.9);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:22px;
+    margin-bottom:18px;
+    backdrop-filter:blur(18px);
+    transition:var(--transition);
+    box-shadow:var(--shadow);
+}
+
+.setting-card:hover{
+    transform:translateY(-4px);
+    border-color:var(--primary);
+}
+
+.setting-card label{
+    display:block;
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:12px;
+    color:#fff;
+}
+
+.setting-card select{
+    width:100%;
+    height:48px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:#0d1525;
+    color:#fff;
+    padding:0 14px;
+    font-size:15px;
+}
+
+.setting-card select:focus{
+    border:1px solid var(--primary);
+}
+
+.setting-card input[type="checkbox"]{
+    width:22px;
+    height:22px;
+    accent-color:#0d6efd;
+    cursor:pointer;
+}
+
+#saveSettingsBtn{
+    width:100%;
+    height:52px;
+    border:none;
+    border-radius:14px;
+    background:#0d6efd;
+    color:#fff;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#saveSettingsBtn:hover{
+    background:#0b5ed7;
+    transform:scale(1.02);
+}
+
+@media(max-width:768px){
+
+.section-title{
+    font-size:28px;
+}
+
+.setting-card{
+    padding:18px;
+}
+
+#saveSettingsBtn{
+    height:48px;
+}
+
+}
