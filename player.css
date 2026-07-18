@@ -300,3 +300,60 @@ transform:translateY(0);
 }
 
 }
+/* =====================================
+PLAYER EXTRA MODULES
+===================================== */
+
+.movie-tags{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin:20px 0;
+}
+
+.movie-tags .tag{
+background:#1f1f1f;
+color:#fff;
+padding:8px 14px;
+border-radius:20px;
+font-size:13px;
+}
+
+.episode-navigation,
+.player-settings,
+.quality-selector,
+.speed-selector,
+.subtitle-selector{
+
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin:20px 0;
+
+}
+
+.episode-navigation button,
+.player-settings button,
+.quality-selector button,
+.speed-selector button,
+.subtitle-selector button{
+
+background:#0A84FF;
+color:#fff;
+border:none;
+padding:10px 18px;
+border-radius:10px;
+cursor:pointer;
+transition:.3s;
+
+}
+
+.episode-navigation button:hover,
+.player-settings button:hover,
+.quality-selector button:hover,
+.speed-selector button:hover,
+.subtitle-selector button:hover{
+
+background:#0066cc;
+
+}
