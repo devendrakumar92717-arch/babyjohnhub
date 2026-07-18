@@ -409,3 +409,15 @@ setInterval(() => {
 }, 300000);
 
 console.log("BabyJohnHub Home Ready");
+
+const filterButtons = document.querySelectorAll(".trending-filter button");
+
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+
+        button.classList.add("active");
+
+    });
+});
